@@ -1,0 +1,17 @@
+{
+    "name": "articulate/framework",
+    "description": "A PHP development framework",
+    "require": {
+        "symfony/http-foundation": "~2.5",
+        "lichtner/fluentpdo": "dev-master",
+        "components/jquery": "~2.1",
+        "symfony/expression-language": "~2.5",
+        "twig/twig": "~1.16"
+    },
+    "authors": [
+        {
+            "name": "Abdullah Al Zakir Hossain",
+            "email": "aazhbd@yahoo.com"
+        }
+    ]
+}

@@ -1,0 +1,138 @@
+/**
+* An open source web application development framework for PHP 5 and above.
+*
+* @author        ArticulateLogic Labs
+* @author        Abdullah Al Zakir Hossain, Email: aazhbd@yahoo.com 
+* @author        Syeda Tasneem Rumy, Email: tasneemrumy@gmail.com
+* @author        Abdullah Al Zakir Hossain, Email: aazhbd@yahoo.com
+* @copyright     Copyright (c)2009-2010 ArticulateLogic Labs, creative software engineering
+* @license       www.articulatelogic.com/a/privacy,  www.articulatelogic.com/a/terms
+* @link          http://www.articulatelogic.com
+* @since         Version 1.0
+*  
+*/
+
+form{
+    margin: 0;
+    font: .8em Arial, Verdana, Helvetica, sans-serif;
+}
+
+fieldset {
+    color:#000;
+    padding: 0;
+    border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    min-height: 30px;
+    overflow: hidden;
+    text-align: left;
+}
+
+fieldset > legend {
+    text-align: left;
+    color: #000;
+    border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+}
+
+fieldset > span, fieldset > div {
+    margin: 1em;
+}
+
+fieldset > span, fieldset > div > span {
+    display: block;
+    float: left;
+    text-align:left;
+}
+
+fieldset > span, fieldset > div > span {
+    margin-right: 1em;
+}
+
+fieldset > legend, fieldset label {
+    font-weight: bold;
+}
+
+fieldset label > label {
+    font-weight: normal;
+}
+
+fieldset ul, fieldset ol {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+fieldset label > span, fieldset label > div, fieldset label > p {
+    font-weight: normal;
+}
+
+form .info {
+    font-size: 0.8em;
+}
+
+textarea, select {
+    margin: 0;
+    vertical-align: top;
+    font: .9em "Tahoma", Verdana, Helvetica, sans-serif;
+}
+
+.relatedcheckboxes, .relatedselects {
+    margin: 0;
+}
+
+.relatedcheckboxes > label > label {
+    font-size: 0.5em;
+    width: 17em;
+    display: block;
+    float: left;
+}
+
+input ,[type=text],[type=password], textarea, select {
+    border: 1px solid silver;
+}
+
+form .actions {
+    text-align: right;
+}
+
+form fieldset legend {
+    background: #F6F6F6 url('../images/menubgi.jpg') top left no-repeat;
+    border: none;
+    position: relative;
+    width: 80%;
+    padding: 0.5em;
+    border-bottom: 0.01em solid #DFEFEF;
+    border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+}
+
+form fieldset {
+    overflow: hidden;
+    background: #F6F6F6 url(../images/menubg.jpg) bottom right no-repeat;
+    border: none;
+}
+
+form .frmbtn {
+    color:#fff;
+    font: "Tahoma" 0.5em;
+    font-weight:bold;
+    background: url(../images/btnface.gif) #eee;
+    padding: 0.4em;
+    border: 1px solid #bbb;
+}
+
+form .frmbtn:hover {
+    border: 1px solid #ffc;
+}
+
+form #txtsrch{
+    width:280px;
+}
+
+form .log{
+    width:180px;
+}
+
+/* end of form formats */
