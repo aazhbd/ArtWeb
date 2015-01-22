@@ -31,6 +31,12 @@ $app->getRouteManager()->dispatchUrl(
 
 Requires `PHP 5.3` or greater.
 
+### License
+-----------
+
+The code is released under MIT License.
+
+
 
 ### Installation instruction
 -----------------------------
