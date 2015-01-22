@@ -1,10 +1,11 @@
 {
     "name": "articulate/framework",
-    "description": "A PHP development framework",
+    "description": "A PHP framework",
     "require": {
         "symfony/http-foundation": "~2.5",
         "lichtner/fluentpdo": "dev-master",
         "components/jquery": "~2.1",
+        "components/normalize.css": "2.*",
         "symfony/expression-language": "~2.5",
         "twig/twig": "~1.16"
     },

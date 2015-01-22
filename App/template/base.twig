@@ -6,10 +6,12 @@
     <title>{% block title %}{% endblock %}</title>
     <link href="{{ static_path }}css/forms.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="{{ static_path }}css/zstyle.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="{{ root_url }}/components/require.css" rel="stylesheet" type="text/css" media="screen" />
     <!--[if lte IE 6]>
     <link href="{{ static_path }}css/msie.css" rel="stylesheet" type="text/css" media="screen" />
     <![endif]-->
-    <script type="text/javascript" src="{{ static_path }}js/"></script>
+    <script type="text/javascript" src="{{ root_url }}/components/require.js"></script>
+    <script type="text/javascript" src="{{ root_url }}/components/jquery/jquery.js"></script>
 {% endblock %}
 </head>
 
