@@ -73,5 +73,5 @@ This is should create a clean initial setup for any Web Application software. It
 ### Contact:
 ------------
 
-	AAZH (mailto:aazhbd@yahoo.com)
+	AAZH (aazhbd@yahoo.com)
 
