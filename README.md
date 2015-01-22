@@ -1,25 +1,29 @@
 # ArtWebApp
+------------
+
+
 A Web Application framework for PHP powered by Symfony2 components.
 
 ### Installation instruction
+-----------------------------
 
 * Step 1. The copy of ArtWebApp for your use can be obtained by making a clone from github. Assuming the git is installed the following command can be used:
 
-```$ git clone https://github.com/aazhbd/ArtWebApp.git```
+	```$ git clone https://github.com/aazhbd/ArtWebApp.git```
 
-This creates a folder named "ArtWebApp" which can be renamed to fit necessity.
+	This creates a folder named "ArtWebApp" which can be renamed to fit necessity.
 
 * Step 2. The components for the framework has to be installed and/or updated through composer. Assuming PHP is installed in the commadline, the composer itself can be obtained by following command:
 
-```$ php -r "readfile('https://getcomposer.org/installer');" | php```
+	```$ php -r "readfile('https://getcomposer.org/installer');" | php```
 
-While having the composer.json file obtained in the ArtWebApp folder and composer.phar is downloaded in the same directory, the following can be used to install the components:
+	While having the composer.json file obtained in the ArtWebApp folder and composer.phar is downloaded in the same directory, the following can be used to install the components:
 
-```$ php composer.phar install```
+	```$ php composer.phar install```
 
-This should create a vendor folder, and should automatically integrate itself with rest of the library. And the setup is ready to use. Anytime if any of the components needs to updated and/or added the following can be used:
+	This should create a vendor folder, and should automatically integrate itself with rest of the library. And the setup is ready to use. Anytime if any of the components needs to updated and/or added the following can be used:
 
-```$ php composer.phar update```
+	```$ php composer.phar update```
 
 * Step 3. Change Configuration: There is a conf.php file that contains most common configuration values, like database credentials, paths for different folder etc., these can be changed to fit particular environment.
 
@@ -31,5 +35,6 @@ This is should create a clean inital setup for any Web Application software. It 
 
 
 ### Contact:
-	- AAZH (aazhbd@yahoo.com)
+------------
+	* AAZH (aazhbd@yahoo.com)
 
