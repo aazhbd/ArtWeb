@@ -1,6 +1,6 @@
 # ArtWebApp
 
-	A Web Application framework for PHP powered by Symfony2 components.
+ArtWebApp is a fast, secure, feature rich, scalable web application framework for PHP5, using Symfony2 components integrating with the best practices of MVC.
 
 
 ### Installation instruction
@@ -43,5 +43,6 @@ This is should create a clean inital setup for any Web Application software. It 
 
 ### Contact:
 ------------
+
 	* AAZH (aazhbd@yahoo.com)
 
