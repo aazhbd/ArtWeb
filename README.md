@@ -2,6 +2,11 @@
 
 ArtWebApp is a fast, secure, feature rich, scalable web application framework for PHP5, using Symfony2 components integrating with the best practices of MVC.
 
+### Requirements
+----------------
+
+Requires `PHP 5.3` or greater.
+
 
 ### Installation instruction
 -----------------------------
@@ -38,7 +43,7 @@ ArtWebApp is a fast, secure, feature rich, scalable web application framework fo
 
 * Step 5. Changing the browser to pointing the webroot folder should open an initial page, assuming conf.php and routes.php are as downloaded. This can be sorted by creating a virtualhost or changing apache DocumentRoot to point to webroot folder.
 
-This is should create a clean inital setup for any Web Application software. It could be useful to be notified of any exceptions so that fixes can be added.
+This is should create a clean initial setup for any Web Application software. It could be useful to be notified of any exceptions so that fixes can be added.
 
 
 ### Contact:
