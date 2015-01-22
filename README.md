@@ -2,6 +2,30 @@
 
 ArtWebApp is a fast, secure, feature rich, scalable web application framework for PHP5, using Symfony2 components integrating with the best practices of MVC.
 
+It's easy to start:
+
+```php
+<?php
+
+require_once('../ArtLibs/Application.php');
+
+$app = new \ArtLibs\Application();
+
+class test {
+    function viewTest() {
+        echo "Hello World!";
+    }
+}
+
+$app->getRouteManager()->dispatchUrl(
+	array(
+        '/test' => './test/viewTest',
+    )
+);
+
+```
+
+
 ### Requirements
 ----------------
 
@@ -49,5 +73,5 @@ This is should create a clean initial setup for any Web Application software. It
 ### Contact:
 ------------
 
-	* AAZH (aazhbd@yahoo.com)
+	AAZH (aazhbd@yahoo.com)
 

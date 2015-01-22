@@ -6,7 +6,7 @@ $conf = array(
         'development_mode' => false
     ),
     'development' => array(
-        'db_name' => 'dev_db',
+        'db_name' => 'test',
         'db_host' => 'localhost',
         'db_user' => 'root',
         'db_pass' => '',

@@ -2,6 +2,7 @@
 
 namespace ArtLibs;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use \Symfony\Component\HttpFoundation\Response;
 
 
@@ -30,9 +31,45 @@ class Controller {
 
     }
 
+    public function jsonResponse($app, $data)
+    {
+        $this->response =new JsonResponse();
+        $this->response->setData($data);
+        $this->response->send();
+    }
+
+    public function fileResponse($app, $filePath)
+    {
+        if(!file_exists($filePath)) {
+            $app->getErrorManager()
+                ->addMessage("Error Occurred: File could not be found to make a proper response.");
+            return;
+        }
+        $content = file_get_contents($filePath);
+        header("Pragma: public");
+        header("Expires: 0");
+        header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+        header("Content-Type: application/force-download");
+        header("Content-Type: application/octet-stream");
+        header("Content-Type: application/download");
+        header("Content-Transfer-Encoding: binary ");
+        echo $content;
+        return;
+    }
+
     public function display($app, $template)
     {
-        $this->response = new Response($app->getTemplateManager()->getTemplate()->render($template, $app->getTemplateData()), Response::HTTP_OK, array('content-type' => 'text/html'));
+        $this->response = new Response(
+            $app->getTemplateManager()
+                ->getTemplate()
+                ->render(
+                    $template,
+                    $app->getTemplateData()
+                ),
+            Response::HTTP_OK,
+            array('content-type' => 'text/html')
+        );
+
         $this->response->send();
 
     }

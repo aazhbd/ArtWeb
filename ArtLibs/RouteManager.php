@@ -33,7 +33,11 @@ class RouteManager
     public function setUrlParams($url_params=array())
     {
         if(count($url_params) < 1) {
-            $this->url_params = array_values(array_filter(explode('/', trim($this->incoming_url, '\\')))); //array_values(array_filter($p));
+            $this->url_params = array_values(
+                array_filter(
+                    explode('/', trim($this->incoming_url, '\\'))
+                )
+            );
         }
         else {
             $this->url_params = $url_params;
@@ -42,9 +46,13 @@ class RouteManager
         return $this;
     }
 
-    public function dispatchUrl()
+    public function dispatchUrl($route_conf=array())
     {
         $this->setUrlParams();
+
+        if(count($route_conf) >= 1) {
+            $this->setRoutes($route_conf);
+        }
 
         $params = $this->getUrlParams();
         $incoming = $this->getIncomingUrl();
@@ -71,7 +79,6 @@ class RouteManager
         }
 
         if (!$found) {
-            //throw new \Exception("URL, " . $incoming . " not found.");
             $this->getApp()->getErrorManager()->addMessage("URL " . $incoming . " not found. 404");
             return;
         }
@@ -82,7 +89,8 @@ class RouteManager
         $method = implode("/", array_slice($ctr_set, -1, 1));
 
         if(!method_exists($class, $method)) {
-            echo "error";
+            $this->getApp()->getErrorManager()->addMessage("Method " . $method . " in class " . $class . " couldn't be found");
+            return;
         }
 
         call_user_func_array(array(new $class(), $method), array($url_vars, $this->app));
