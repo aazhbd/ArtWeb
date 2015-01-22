@@ -87,8 +87,9 @@ class Application
         if(count($this->getTemplateData()) < 1) {
             $this->template_data = array(
                 'path' => $this->getConfManager()->getPath(),
-                'static_path' => $this->getConfManager()->getPathStatic(),
-                'root_url' => $this->getConfManager()->getPathUrl(),
+                'path_static' => $this->getConfManager()->getPathStatic(),
+                'path_url' => $this->getConfManager()->getPathUrl(),
+                'path_url_postfix' => $this->getConfManager()->getPathUrl() . $this->getConfManager()->getPathRootPostfix(),
                 'errors' => $this->getErrorManager()->getMessages()
             );
         }

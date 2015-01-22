@@ -19,7 +19,7 @@ class Views extends Controller
         $app->setTemplateData(
             array(
                 'title' => 'Custom',
-                'body_content' => 'home page.'
+                'body_content' => 'A test custom page loaded from controller/view.php.'
             )
         );
 

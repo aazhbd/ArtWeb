@@ -4,14 +4,14 @@
 {% block head %}
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>{% block title %}{% endblock %}</title>
-    <link href="{{ static_path }}css/forms.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="{{ static_path }}css/zstyle.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="{{ root_url }}/components/require.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="{{ path_static }}css/forms.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="{{ path_static }}css/zstyle.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="{{ path_url }}/components/require.css" rel="stylesheet" type="text/css" media="screen" />
     <!--[if lte IE 6]>
     <link href="{{ static_path }}css/msie.css" rel="stylesheet" type="text/css" media="screen" />
     <![endif]-->
-    <script type="text/javascript" src="{{ root_url }}/components/require.js"></script>
-    <script type="text/javascript" src="{{ root_url }}/components/jquery/jquery.js"></script>
+    <script type="text/javascript" src="{{ path_url }}/components/require.js"></script>
+    <script type="text/javascript" src="{{ path_url }}/components/jquery/jquery.js"></script>
 {% endblock %}
 </head>
 
@@ -19,7 +19,7 @@
     <div id="contentheader">
     {% block contentheader %}
         <div id="banner">
-            <img src="{{ static_path }}images/logo.gif" id="logo" />
+            <img src="{{ path_static }}images/logo.gif" id="logo" />
 
 			<div id="search">
                 <form class="frmsearch" method="post" id="frmsearch" action="">
@@ -32,11 +32,11 @@
 
             <div id="navigatemenu">
                 <ul id="nav">
-                    <li><a href="{{ root_url }}/home">Home</a></li>
-                    <li><a href="{{ root_url }}/lorem_Ipsum">Second Menu</a>
+                    <li><a href="{{ path_url_postfix }}/home">Home</a></li>
+                    <li><a href="{{ path_url_postfix }}/lorem_Ipsum">Second Menu</a>
                         <ul>
-                            <li><a href="{{ root_url }}/lorem_Ipsum">Menu Item 1</a></li>
-                            <li><a href="{{ root_url }}/lorem_Ipsum">Menu Item 2</a></li>
+                            <li><a href="{{ path_url_postfix }}/lorem_Ipsum">Menu Item 1</a></li>
+                            <li><a href="{{ path_url_postfix }}/lorem_Ipsum">Menu Item 2</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -18,6 +18,8 @@ class Configuration
 
     protected $path_root;
 
+    protected $path_root_postfix;
+
     protected $path_url;
 
     protected $path_template;
@@ -33,12 +35,44 @@ class Configuration
     public function __construct($app)
     {
         $this->path = str_replace(DIRECTORY_SEPARATOR, '/', realpath(dirname(__FILE__).'/..'));
-        $this->path_root = str_replace(' ', '%20', preg_replace('/'.preg_quote(str_replace(DIRECTORY_SEPARATOR, '/', $_SERVER['DOCUMENT_ROOT']), '/').'\/?/', '', str_replace(DIRECTORY_SEPARATOR, '/', realpath(dirname(__FILE__) . '/..'))));
-        $this->path_url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . (strlen($this->path_root) ? ("/" . $this->path_root) : '');
 
+        $this->path_root_postfix = '/webroot';
+
+        $this->path_root = str_replace(
+                                ' ',
+                                '%20',
+                                preg_replace(
+                                    '/'.preg_quote(
+                                        str_replace(
+                                            DIRECTORY_SEPARATOR,
+                                            '/',
+                                            $_SERVER['DOCUMENT_ROOT']
+                                        ),
+                                        '/').'\/?/',
+                                        '',
+                                        str_replace(
+                                            DIRECTORY_SEPARATOR,
+                                            '/',
+                                            realpath(
+                                                dirname(__FILE__) . '/..'
+                                            )
+                                        )
+                                )
+                            );
+
+        $this->path_url = (
+                    empty($_SERVER['HTTPS']) ?
+                        'http://' : 'https://'
+                    ) .
+                    $_SERVER['HTTP_HOST'] .
+                    (
+                    strlen($this->path_root) ?
+                        ("/" . $this->path_root) : ''
+                    );
+
+        $this->path_library = $this->path . '/ArtLibs/';
         $this->path_template = $this->path . '/App/template/';
         $this->path_static = $this->path_url . '/App/static/';
-        $this->path_library = $this->path . '/ArtLibs/';
 
         $this->db_host = 'localhost';
         $this->db_name = 'artcms';
@@ -49,6 +83,22 @@ class Configuration
 
         $this->app = $app;
         $this->conf = $app->getConf();
+    }
+
+    /**
+     * @return string
+     */
+    public function getPathRootPostfix()
+    {
+        return $this->path_root_postfix;
+    }
+
+    /**
+     * @param string $path_root_postfix
+     */
+    public function setPathRootPostfix($path_root_postfix)
+    {
+        $this->path_root_postfix = $path_root_postfix;
     }
 
     /**
@@ -271,6 +321,7 @@ class Configuration
 
         if(isset($conf['path'])) $this->path = $conf['path'];
         if(isset($conf['path_root'])) $this->path_root = $conf['path_root'];
+        if(isset($conf['path_root_postfix'])) $this->path_root_postfix = $conf['path_root_postfix'];
         if(isset($conf['path_url'])) $this->path_url = $conf['path_url'];
 
         if(isset($conf['path_template'])) $this->path_template = $conf['path_template'];
