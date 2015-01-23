@@ -68,9 +68,9 @@ Change Routes/URLs: There is a `routes.php` file that contains the mapping of ur
 
 Anytime if any of the components needs to updated and/or added the following can be used:
 
-    ```
-    $ php composer.phar update
-    ```
+```
+$ php composer.phar update
+```
 
 This is should create a clean initial setup for any Web Application software. It could be useful to be notified of any exceptions so that fixes can be added.
 
