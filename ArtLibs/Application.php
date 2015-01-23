@@ -188,7 +188,7 @@ class Application
         }
 
         if($this->conf == false) {
-            throw new \Exception("Unable to load configuration file. ");
+            throw new \Exception("Unable to load configuration file.");
         }
 
         return $this->conf;

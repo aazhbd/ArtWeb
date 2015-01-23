@@ -36,6 +36,8 @@ Requires `PHP 5.3` or greater.
 ### Installation instruction
 ----------------------------
 
+The following steps are applicable in both Windows and Linux (*nix) platforms, while git, php etc., are installed and accessible in command line.
+
 * Step 1. The copy of ArtWebApp for your use can be obtained by making a clone from github. Assuming the git is installed the following command can be used:
 
 	```
