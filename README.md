@@ -1,3 +1,4 @@
+
 # ArtWebApp
 
 ArtWebApp is a fast, secure, feature rich, scalable web application framework for PHP5, using Symfony2 components integrating with the best practices of MVC.
@@ -31,12 +32,6 @@ $app->getRouteManager()->dispatchUrl(
 
 Requires `PHP 5.3` or greater.
 
-### License
------------
-
-The code is released under MIT License.
-
-
 
 ### Installation instruction
 -----------------------------
@@ -61,19 +56,29 @@ The code is released under MIT License.
 	$ php composer.phar install
 	```
 
-	This should create a vendor folder, and should automatically integrate itself with rest of the library. And the setup is ready to use. Anytime if any of the components needs to updated and/or added the following can be used:
+	This should create a vendor folder, and should automatically integrate itself with rest of the library. And the setup is ready to use.
+	
 
-	```
-	$ php composer.phar update
-	```
+* Step 3. Changing the browser to pointing the webroot folder should open an initial page, assuming conf.php and routes.php are as downloaded. This can be sorted by creating a virtualhost or changing apache DocumentRoot to point to webroot folder.
 
-* Step 3. Change Configuration: There is a conf.php file that contains most common configuration values, like database credentials, paths for different folder etc., these can be changed to fit particular environment.
 
-* Step 4. Change Routes/URLs: There is a routes.php file that contains the mapping of urls with methods. More  comma-separated key => value pairs can be added to address any number of urls.
+* Change Configuration: There is a conf.php file that contains most common configuration values, like database credentials, paths for different folder etc., these can be changed to fit particular environment.
 
-* Step 5. Changing the browser to pointing the webroot folder should open an initial page, assuming conf.php and routes.php are as downloaded. This can be sorted by creating a virtualhost or changing apache DocumentRoot to point to webroot folder.
+* Change Routes/URLs: There is a routes.php file that contains the mapping of urls with methods. More  comma-separated key => value pairs can be added to address any number of urls.
+
+* Anytime if any of the components needs to updated and/or added the following can be used:
+  
+    ```
+    $ php composer.phar update
+    ```
 
 This is should create a clean initial setup for any Web Application software. It could be useful to be notified of any exceptions so that fixes can be added.
+
+
+### License
+-----------
+
+The code is released under MIT License.
 
 
 ### Contact:

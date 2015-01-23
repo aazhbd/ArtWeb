@@ -1,6 +1,8 @@
 <?php
 namespace ArtLibs;
 
+use Symfony\Component\HttpFoundation\Request;
+
 class Application
 {
     protected $conf_manager;
@@ -39,7 +41,7 @@ class Application
             $this->conf_manager->loadLibrary('../App/controller');
 
             require_once($this->conf_manager->getPath() . '/vendor/autoload.php');
-            $this->request = \Symfony\Component\HttpFoundation\Request::createFromGlobals();
+            $this->request = Request::createFromGlobals();
 
             $this->data_manager = $this->setDataManager()->getDataManager();
 
@@ -126,7 +128,6 @@ class Application
     /**
      * @param mixed $conf_manager
      * @return mixed
-     * @throws Exception
      */
     public function setConfManager($conf_manager=false)
     {
