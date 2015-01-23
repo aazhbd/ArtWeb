@@ -1,5 +1,6 @@
 
 # ArtWebApp
+===========
 
 ArtWebApp is a fast, secure, feature rich, scalable web application framework for PHP5, using Symfony2 components integrating with the best practices of MVC.
 
@@ -28,11 +29,13 @@ $app->getRouteManager()->dispatchUrl(
 
 
 ### Requirements
+----------------
 
 Requires `PHP 5.3` or greater.
 
 
 ### Installation instruction
+----------------------------
 
 * Step 1. The copy of ArtWebApp for your use can be obtained by making a clone from github. Assuming the git is installed the following command can be used:
 
@@ -73,11 +76,13 @@ This is should create a clean initial setup for any Web Application software. It
 
 
 ### License
+-----------
 
 The code is released under MIT License.
 
 
-### Contact:
+### Contact
+-----------
 
 	AAZH (aazhbd@yahoo.com)
 
