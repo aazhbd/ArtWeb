@@ -28,13 +28,11 @@ $app->getRouteManager()->dispatchUrl(
 
 
 ### Requirements
-----------------
 
 Requires `PHP 5.3` or greater.
 
 
 ### Installation instruction
------------------------------
 
 * Step 1. The copy of ArtWebApp for your use can be obtained by making a clone from github. Assuming the git is installed the following command can be used:
 
@@ -62,12 +60,11 @@ Requires `PHP 5.3` or greater.
 * Step 3. Changing the browser to pointing the webroot folder should open an initial page, assuming conf.php and routes.php are as downloaded. This can be sorted by creating a virtualhost or changing apache DocumentRoot to point to webroot folder.
 
 
-* Change Configuration: There is a conf.php file that contains most common configuration values, like database credentials, paths for different folder etc., these can be changed to fit particular environment.
+Change Configuration: There is a `conf.php` file that contains most common configuration values, like database credentials, paths for different folder etc., these can be changed to fit particular environment.
 
-* Change Routes/URLs: There is a routes.php file that contains the mapping of urls with methods. More  comma-separated key => value pairs can be added to address any number of urls.
+Change Routes/URLs: There is a `routes.php` file that contains the mapping of urls with methods. More  comma-separated key => value pairs can be added to address any number of urls.
 
-* Anytime if any of the components needs to updated and/or added the following can be used:
-  
+Anytime if any of the components needs to updated and/or added the following can be used:
     ```
     $ php composer.phar update
     ```
@@ -76,13 +73,11 @@ This is should create a clean initial setup for any Web Application software. It
 
 
 ### License
------------
 
 The code is released under MIT License.
 
 
 ### Contact:
-------------
 
 	AAZH (aazhbd@yahoo.com)
 
