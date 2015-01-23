@@ -1,6 +1,7 @@
 {
     "name": "articulate/webapplication",
     "description": "ArtWebApp is a fast, secure, feature rich, scalable web application framework for PHP5, using Symfony2 components integrating with the best practices of MVC.",
+    "license": "MIT",
     "require": {
         "php": ">=5.3.0",
         "symfony/http-foundation": "~2.5",
@@ -13,7 +14,9 @@
     "authors": [
         {
             "name": "Abdullah Al Zakir Hossain",
-            "email": "aazhbd@yahoo.com"
+            "email": "aazhbd@yahoo.com",
+            "homepage": "http://articulatelogic.com/downloads",
+            "role": "Developer"
         }
     ]
 }
