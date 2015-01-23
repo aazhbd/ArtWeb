@@ -67,6 +67,7 @@ Change Configuration: There is a `conf.php` file that contains most common confi
 Change Routes/URLs: There is a `routes.php` file that contains the mapping of urls with methods. More  comma-separated key => value pairs can be added to address any number of urls.
 
 Anytime if any of the components needs to updated and/or added the following can be used:
+
     ```
     $ php composer.phar update
     ```
