@@ -1,6 +1,6 @@
 {
     "name": "articulate/webapplication",
-    "description": "ArtWebApp is a fast, secure, feature rich, scalable web application framework for PHP5, using Symfony2 components integrating with the best practices of MVC.",
+    "description": "ArtWeb is a fast, secure, feature rich, scalable web application framework for PHP5, using Symfony2 components integrating with the best practices of MVC.",
     "license": "MIT",
     "require": {
         "php": ">=5.3.0",
