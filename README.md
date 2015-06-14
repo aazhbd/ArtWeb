@@ -41,7 +41,7 @@ The following steps are applicable in both Windows and Linux (*nix) platforms, w
 * Step 1. The copy of ArtWebApp for your use can be obtained by making a clone from github. Assuming the git is installed the following command can be used:
 
 	```
-	$ git clone https://github.com/aazhbd/ArtWebApp.git
+	$ git clone https://github.com/aazhbd/ArtWeb.git
 	```
 
 	This creates a folder named "ArtWebApp" which can be renamed to fit necessity.
