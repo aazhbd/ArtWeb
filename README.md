@@ -1,7 +1,7 @@
 
-# ArtWebApp
+# ArtWeb
 
-ArtWebApp is a fast, secure, feature rich, scalable web application framework for PHP5, using Symfony2 components integrating with the best practices of MVC.
+ArtWeb is a fast, secure, feature rich, scalable web application framework for PHP5, using Symfony2 components integrating with the best practices of MVC.
 
 It's easy to start:
 
