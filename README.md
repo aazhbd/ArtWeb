@@ -38,13 +38,13 @@ Requires `PHP 5.3` or greater.
 
 The following steps are applicable in both Windows and Linux (*nix) platforms, while git, php etc., are installed and accessible in command line.
 
-* Step 1. The copy of ArtWebApp for your use can be obtained by making a clone from github. Assuming the git is installed the following command can be used:
+* Step 1. The copy of ArtWeb for your use can be obtained by making a clone from github. Assuming the git is installed the following command can be used:
 
 	```
 	$ git clone https://github.com/aazhbd/ArtWeb.git
 	```
 
-	This creates a folder named "ArtWebApp" which can be renamed to fit necessity.
+	This creates a folder named "ArtWeb" which can be renamed to fit necessity.
 
 * Step 2. The components for the framework has to be installed and/or updated through composer. Assuming PHP is installed in the commadline, the composer itself can be obtained by following command:
 
