@@ -43,7 +43,12 @@ class Application
             require_once($this->conf_manager->getPath() . '/vendor/autoload.php');
             $this->request = Request::createFromGlobals();
 
-            $this->data_manager = $this->setDataManager()->getDataManager();
+            $this->data_manager = $this->setDataManager();
+
+            if($this->data_manager->getMessage() != false)
+            {
+                $this->getErrorManager()->addMessage('Exception occurred : ' . $this->data_manager->getMessage());
+            }
 
             $this->routes = $this->setRoutes(false);
             $this->route_manager = $this->setRouteManager(false);
@@ -51,7 +56,6 @@ class Application
         }
         catch (\Exception $ex) {
             $this->getErrorManager()->addMessage('Exception occurred : ' .  $ex->getMessage());
-
         }
     }
 

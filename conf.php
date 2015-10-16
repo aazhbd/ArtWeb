@@ -9,7 +9,7 @@ $conf = array(
         'db_name' => 'dbname',
         'db_host' => 'localhost',
         'db_user' => 'root',
-        'db_pass' => '1234',
+        'db_pass' => '123',
         'development_mode' => true
     ),
     'staging' => array(
