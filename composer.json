@@ -1,22 +1,25 @@
 {
-    "name": "articulate/webapplication",
-    "description": "ArtWeb is a fast, secure, feature rich, scalable web application framework for PHP5, using Symfony2 components integrating with the best practices of MVC.",
-    "license": "MIT",
-    "require": {
-        "php": ">=5.3.0",
-        "symfony/http-foundation": "~2.5",
-        "lichtner/fluentpdo": "dev-master",
-        "components/jquery": "~2.1",
-        "components/normalize.css": "2.*",
-        "symfony/expression-language": "~2.5",
-        "twig/twig": "~1.16"
-    },
-    "authors": [
-        {
-            "name": "Abdullah Al Zakir Hossain",
-            "email": "aazhbd@yahoo.com",
-            "homepage": "http://articulatelogic.com/downloads",
-            "role": "Developer"
-        }
-    ]
+  "name": "articulate/webapplication",
+  "description": "ArtWeb is a fast, secure, feature rich, scalable web application framework for PHP5, using Symfony2 components integrating with the best practices of MVC.",
+  "license": "MIT",
+  "require": {
+    "php": ">=5.3.0",
+    "symfony/http-foundation": "~2.5",
+    "lichtner/fluentpdo": "dev-master",
+    "components/jquery": "~2.1",
+    "components/normalize.css": "2.*",
+    "symfony/expression-language": "~2.5",
+    "twig/twig": "~1.16"
+  },
+  "config": {
+    "component-dir": "vendor/assets"
+  },
+  "authors": [
+    {
+      "name": "Abdullah Al Zakir Hossain",
+      "email": "aazhbd@yahoo.com",
+      "homepage": "http://articulatelogic.com/downloads",
+      "role": "Developer"
+    }
+  ]
 }

@@ -6,10 +6,10 @@ $conf = array(
         'development_mode' => false
     ),
     'development' => array(
-        'db_name' => 'test',
+        'db_name' => 'dbname',
         'db_host' => 'localhost',
         'db_user' => 'root',
-        'db_pass' => '',
+        'db_pass' => '1234',
         'development_mode' => true
     ),
     'staging' => array(

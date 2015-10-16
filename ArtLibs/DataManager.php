@@ -8,10 +8,14 @@ class DataManager
 
     function __construct($conf)
     {
-        //require_once($conf->getPath() . '/vendor/lichtner/fluentpdo/' . 'FluentPDO/FluentPDO.php');
-        $data = new \PDO('mysql:host='. $conf->getDbHost() .';dbname='. $conf->getDbName() .'', $conf->getDbUser(), $conf->getDbPass());
-        $this->data_manager = new \FluentPDO($data);
-        //$this->data_manager->debug = true;
+        try {
+            $data = new \PDO('mysql:host='. $conf->getDbHost() .';dbname='. $conf->getDbName() .'', $conf->getDbUser(), $conf->getDbPass());
+            $this->data_manager = new \FluentPDO($data);
+            $this->data_manager->debug = false;
+        }
+        catch(\Exception $ex) {
+            echo "Database connection failed : " . $ex->getMessage();
+        }
     }
 
     /**
