@@ -28,33 +28,43 @@ class Application
         $this->error_manager = $this->setErrorManager(false);
 
         try {
+            /* Set all configurations */
             $this->conf = $this->setConf(false);
             $this->conf_manager = $this->setConfManager(false);
 
-            if($this->conf_manager->getDevelopmentMode()) {
+            if ($this->conf_manager->getDevelopmentMode()) {
                 error_reporting(E_ALL ^ E_NOTICE);
                 ini_set('display_errors', 1);
                 error_reporting(~0);
             }
 
+            /* Load all libraries */
             $this->conf_manager->loadLibrary('../ArtLibs');
             $this->conf_manager->loadLibrary('../App/controller');
 
-            require_once($this->conf_manager->getPath() . '/vendor/autoload.php');
-            $this->request = Request::createFromGlobals();
+            if(file_exists($this->conf_manager->getPath() . '/vendor/autoload.php')) {
+                require_once($this->conf_manager->getPath() . '/vendor/autoload.php');
+                $this->request = Request::createFromGlobals();
+            }
+            else {
+                $this->getErrorManager()->addMessage('The vendor library is missing, use composer to install');
+                return;
+            }
+
+            /* If all libraries are not loaded successfully then set object */
 
             $this->data_manager = $this->setDataManager();
 
-            if($this->data_manager->getMessage() != false)
-            {
+            if($this->data_manager->getMessage() != false) {
                 $this->getErrorManager()->addMessage('Exception occurred : ' . $this->data_manager->getMessage());
             }
 
             $this->routes = $this->setRoutes(false);
             $this->route_manager = $this->setRouteManager(false);
             $this->template_manager = $this->setTemplateManager(false);
+
         }
-        catch (\Exception $ex) {
+        catch(\Exception $ex) {
             $this->getErrorManager()->addMessage('Exception occurred : ' .  $ex->getMessage());
         }
     }
@@ -75,6 +85,33 @@ class Application
     {
         $this->data_manager = new DataManager($this->getConfManager());
         return $this->data_manager;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRouteManager()
+    {
+        if(!isset($this->route_manager)) {
+            $this->getErrorManager()->addMessage('Route manager is not allocated.');
+            exit;
+        }
+        return $this->route_manager;
+    }
+
+    /**
+     * @param mixed $route_manager
+     * @return mixed
+     */
+    public function setRouteManager($route_manager=false)
+    {
+        $this->route_manager = $route_manager;
+
+        if($this->route_manager == false) {
+            $this->route_manager = new RouteManager($this);
+        }
+
+        return $this->route_manager;
     }
 
     /**
@@ -247,31 +284,6 @@ class Application
         }
         return $this->template_manager;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getRouteManager()
-    {
-        return $this->route_manager;
-    }
-
-    /**
-     * @param mixed $route_manager
-     * @return mixed
-     */
-    public function setRouteManager($route_manager=false)
-    {
-        $this->route_manager = $route_manager;
-
-        if($this->route_manager == false) {
-            $this->route_manager = new RouteManager($this);
-        }
-
-        return $this->route_manager;
-    }
-
-
 }
 
 
