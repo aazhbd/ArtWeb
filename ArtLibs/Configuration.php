@@ -34,41 +34,41 @@ class Configuration
 
     public function __construct($app)
     {
-        $this->path = str_replace(DIRECTORY_SEPARATOR, '/', realpath(dirname(__FILE__).'/..'));
+        $this->path = str_replace(DIRECTORY_SEPARATOR, '/', realpath(dirname(__FILE__) . '/..'));
 
         $this->path_root_postfix = '/webroot';
 
         $this->path_root = str_replace(
-                                ' ',
-                                '%20',
-                                preg_replace(
-                                    '/'.preg_quote(
-                                        str_replace(
-                                            DIRECTORY_SEPARATOR,
-                                            '/',
-                                            $_SERVER['DOCUMENT_ROOT']
-                                        ),
-                                        '/').'\/?/',
-                                        '',
-                                        str_replace(
-                                            DIRECTORY_SEPARATOR,
-                                            '/',
-                                            realpath(
-                                                dirname(__FILE__) . '/..'
-                                            )
-                                        )
-                                )
-                            );
+            ' ',
+            '%20',
+            preg_replace(
+                '/' . preg_quote(
+                    str_replace(
+                        DIRECTORY_SEPARATOR,
+                        '/',
+                        $_SERVER['DOCUMENT_ROOT']
+                    ),
+                    '/') . '\/?/',
+                '',
+                str_replace(
+                    DIRECTORY_SEPARATOR,
+                    '/',
+                    realpath(
+                        dirname(__FILE__) . '/..'
+                    )
+                )
+            )
+        );
 
         $this->path_url = (
-                    empty($_SERVER['HTTPS']) ?
-                        'http://' : 'https://'
-                    ) .
-                    $_SERVER['HTTP_HOST'] .
-                    (
-                    strlen($this->path_root) ?
-                        ("/" . $this->path_root) : ''
-                    );
+            empty($_SERVER['HTTPS']) ?
+                'http://' : 'https://'
+            ) .
+            $_SERVER['HTTP_HOST'] .
+            (
+            strlen($this->path_root) ?
+                ("/" . $this->path_root) : ''
+            );
 
         $this->path_library = $this->path . '/ArtLibs/';
         $this->path_template = $this->path . '/App/template/';
@@ -83,6 +83,56 @@ class Configuration
 
         $this->app = $app;
         $this->conf = $app->getConf();
+    }
+
+    /**
+     * @return string
+     */
+    public function loadLibrary($library)
+    {
+        if (!is_dir($library)) {
+            return false;
+        }
+
+        $lib_dir = $library;
+
+        if ($handle = opendir($lib_dir)) {
+            while (false !== ($entry = readdir($handle))) {
+                if (strpos($entry, '.php')) {
+                    require_once($lib_dir . '/' . $entry);
+                }
+            }
+            closedir($handle);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function setConfiguration($conf)
+    {
+        if (count($conf) < 1 || empty($conf)) {
+            return false;
+        }
+
+        if (isset($conf['path'])) $this->path = $conf['path'];
+        if (isset($conf['path_root'])) $this->path_root = $conf['path_root'];
+        if (isset($conf['path_root_postfix'])) $this->path_root_postfix = $conf['path_root_postfix'];
+        if (isset($conf['path_url'])) $this->path_url = $conf['path_url'];
+
+        if (isset($conf['path_template'])) $this->path_template = $conf['path_template'];
+        if (isset($conf['path_static'])) $this->path_static = $conf['path_static'];
+        if (isset($conf['path_library'])) $this->path_library = $conf['path_library'];
+
+        if (isset($conf['db_host'])) $this->db_host = $conf['db_host'];
+        if (isset($conf['db_name'])) $this->db_name = $conf['db_name'];
+        if (isset($conf['db_user'])) $this->db_user = $conf['db_user'];
+        if (isset($conf['db_pass'])) $this->db_pass = $conf['db_pass'];
+
+        if (isset($conf['development_mode'])) $this->development_mode = $conf['development_mode'];
+        return $this;
     }
 
     /**
@@ -291,51 +341,6 @@ class Configuration
     public function setDevelopmentMode($development_mode)
     {
         $this->development_mode = $development_mode;
-    }
-
-    public function loadLibrary($library)
-    {
-        if(!is_dir($library)) {
-            return false;
-        }
-
-        $lib_dir = $library;
-
-        if ($handle = opendir($lib_dir)) {
-            while (false !== ($entry = readdir($handle))) {
-                if (strpos($entry, '.php')) {
-                    require_once($lib_dir . '/' . $entry);
-                }
-            }
-            closedir($handle);
-        }
-
-        return $this;
-    }
-
-    public function setConfiguration($conf)
-    {
-        if(count($conf) < 1 || empty($conf)) {
-            return false;
-        }
-
-        if(isset($conf['path'])) $this->path = $conf['path'];
-        if(isset($conf['path_root'])) $this->path_root = $conf['path_root'];
-        if(isset($conf['path_root_postfix'])) $this->path_root_postfix = $conf['path_root_postfix'];
-        if(isset($conf['path_url'])) $this->path_url = $conf['path_url'];
-
-        if(isset($conf['path_template'])) $this->path_template = $conf['path_template'];
-        if(isset($conf['path_static'])) $this->path_static = $conf['path_static'];
-        if(isset($conf['path_library'])) $this->path_library = $conf['path_library'];
-
-        if(isset($conf['db_host'])) $this->db_host = $conf['db_host'];
-        if(isset($conf['db_name'])) $this->db_name = $conf['db_name'];
-        if(isset($conf['db_user'])) $this->db_user = $conf['db_user'];
-        if(isset($conf['db_pass'])) $this->db_pass = $conf['db_pass'];
-
-        if(isset($conf['development_mode'])) $this->development_mode = $conf['development_mode'];
-        return $this;
-
     }
 
     /**
