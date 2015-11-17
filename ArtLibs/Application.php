@@ -133,7 +133,8 @@ class Application
                 'path_static' => $this->getConfManager()->getPathStatic(),
                 'path_url' => $this->getConfManager()->getPathUrl(),
                 'path_url_postfix' => $this->getConfManager()->getPathUrl() . $this->getConfManager()->getPathRootPostfix(),
-                'errors' => $this->getErrorManager()->getMessages()
+                'errors' => $this->getErrorManager()->getMessages(),
+                'user_var' => $this->getConfManager()->getUserVar(),
             );
         }
 

@@ -3,7 +3,7 @@
 <head>
 {% block head %}
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %} {{ user_var.project_name }}{% endblock %}</title>
     <link href="{{ path_static }}css/forms.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="{{ path_static }}css/zstyle.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="{{ path_url }}/components/require.css" rel="stylesheet" type="text/css" media="screen" />

@@ -30,6 +30,8 @@ class Configuration
 
     protected $development_mode;
 
+    protected $user_var;
+
     private $conf;
 
     public function __construct($app)
@@ -81,6 +83,10 @@ class Configuration
 
         $this->development_mode = false;
 
+        $this->user_var = array(
+            'project_name' => 'ArtWeb'
+        );
+
         $this->app = $app;
         $this->conf = $app->getConf();
     }
@@ -131,8 +137,26 @@ class Configuration
         if (isset($conf['db_user'])) $this->db_user = $conf['db_user'];
         if (isset($conf['db_pass'])) $this->db_pass = $conf['db_pass'];
 
+        if (isset($conf['user_var'])) $this->user_var = $conf['user_var'];
+
         if (isset($conf['development_mode'])) $this->development_mode = $conf['development_mode'];
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserVar()
+    {
+        return $this->user_var;
+    }
+
+    /**
+     * @param mixed $user_var
+     */
+    public function setUserVar($user_var)
+    {
+        $this->user_var = $user_var;
     }
 
     /**

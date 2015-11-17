@@ -10,7 +10,10 @@ $conf = array(
         'db_host' => 'localhost',
         'db_user' => 'root',
         'db_pass' => '',
-        'development_mode' => true
+        'development_mode' => true,
+        'user_var' => array(
+            'project_name' => 'The ArtWeb'
+        ),
     ),
     'staging' => array(
         'db_name' => 'dev_db',
