@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-{% block head %}
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>{% block title %} {{ user_var.project_name }}{% endblock %}</title>
-    <link href="{{ path_static }}css/forms.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="{{ path_static }}css/zstyle.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="{{ path_static }}css/forms.css" rel="stylesheet" type="text/css" media="screen" />
     <!--[if lte IE 6]>
-    <link href="{{ path_static }}css/msie.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="{{ path_static }}css/msie.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <![endif]-->
     <script src="{{ path_url }}/vendor/components/jquery/jquery.js" type="text/javascript"></script>
-{% endblock %}
 </head>
 
 <body>
@@ -19,22 +17,23 @@
         <div id="banner">
             <img src="{{ path_static }}images/logo.gif" id="logo" />
 
-			<div id="search">
+            <div id="search">
                 <form class="frmsearch" method="post" id="frmsearch" action="">
-                    <span>
-                        <input type="text" class="search" onclick="this.value=''" value="Search" name="search" id="insearch">
-                        <input type="image" class="btnsearch" value="Search" id="submit" name="submit">
-                    </span>
+					<span>
+						<input type="text" class="search" onclick="this.value=''" value="Search" name="search" id="insearch">
+						<input type="submit" class="btnsearch" value="Search" id="submit" name="submit">
+					</span>
                 </form>
             </div>
 
             <div id="navigatemenu">
                 <ul id="nav">
                     <li><a href="{{ path_url_postfix }}/home">Home</a></li>
-                    <li><a href="{{ path_url_postfix }}/lorem_Ipsum">Second Menu</a>
+
+                    <li><a href="{{ path_url_postfix }}/lorem_Ipsum">Menu</a>
                         <ul>
-                            <li><a href="{{ path_url_postfix }}/lorem_Ipsum">Menu Item 1</a></li>
-                            <li><a href="{{ path_url_postfix }}/lorem_Ipsum">Menu Item 2</a></li>
+                            <li><a href="{{ path_url_postfix }}/lorem_Ipsum">Menu Item</a></li>
+                            <li><a href="{{ path_url_postfix }}/lorem_Ipsum">Menu Item</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -42,7 +41,9 @@
         </div>
 
         <div id="topright">
-            <a href="{{ root_url }}/logout">Logout</a> | <a href="{{ root_url }}/uhome">Member Home</a>
+            <a href="{{ path_url_postfix }}/logout">Logout</a>
+            |
+            <a href="{{ path_url_postfix }}/uhome">Member Home</a>
         </div>
     {% endblock %}
     </div>
@@ -59,25 +60,22 @@
 		</h2>
 		{% endif %}
 
+        {% if subtitle %}
+        <div id="subtitle">{{ subtitle }}</div>
+        {% endif %}
+
         {% if body %}
             <div class="body">{{ body|raw }}</div>
         {% endif %}
-        <div class="body">
-            {% for b in bodies %}
-                <div id="subtitle">{{ b }}</div>
-            {% endfor %}
-        </div>
     {% endblock %}
     </div>
-    
+
     <div id="footer">
-    {% block footer %}
         <p>
-            &copy; 2015 <a href="http://www.articulatelogic.com/">ArticulateLogic.com</a> | Design: <a href="mailto:aazhbd@yahoo.com">aazhbd</a>
+            &copy; 2015 <a href="http://www.articulatelogic.com/">ArticulateLogic.com</a>
+            | Design: <a href="mailto:aazhbd@yahoo.com">aazhbd</a>
         </p>
-    {% endblock %}
     </div>
-    
 </body>
 </html>
 

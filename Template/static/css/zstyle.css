@@ -15,21 +15,19 @@
 }
 
 body {
-    width: 98%;
-	font: 11px "Titillium Web", Verdana, sans-serif;
+    width: 100%;
+	font: 0.8em Verdana, Helvetica, sans-serif;
     color: #000;
     margin: 0 auto;
-    position: relative;
-    -webkit-font-smoothing: antialiased;
+    position: absolute;
 }
 
 div {
-    overflow:hidden;
     height:auto;
 }
 
 h1 {
-    font-family: "Titillium Web", "Lithos";
+    font-family:"Lithos";
     font-size:1.8em;
     font-weight:bolder;
     color:#333;
@@ -52,10 +50,11 @@ ul{
     list-style:none;
 }
 
-p{
-    text-align:justify;
+p {
+    text-align: justify;
     font-size: .9em;
     margin-bottom: .3em;
+    padding: 1em 0;
 }
 
 p a{
@@ -76,12 +75,29 @@ a:hover {
 img {
     border:none;
 }
+
+/* head */
+
+#contentheader {
+    background: #fff;
+    box-shadow: 0 0px 10px 0px #acacac;
+    opacity: 0.8;
+    position: fixed;
+    top: 0px;
+    padding: 0 4em;
+    width: 95%;
+    z-index: 999;
+}
+
+/* end head */
+
 /* navigation */
 
-#navigatemenu{
-    background: #fff;
-    float:none;
-    width: 100%;
+#navigatemenu {
+    float:left;
+    width: auto;
+    padding: 22px;
+    z-index: 999;
 }
 
 #nav {
@@ -89,6 +105,7 @@ img {
     margin:0;
     height:22px;
     font:1em Tahoma, Geneva, sans-serif;
+    z-index: 999;
 }
 
 #nav ul{
@@ -111,6 +128,7 @@ img {
     font-weight:bold;
     text-decoration:none;
     display:block;
+    z-index: 999;
 }
 
 #nav li a.active {
@@ -180,8 +198,8 @@ img {
 
 #reports{
     color:#000;
+    width:auto;
     height:20px;
-    width:90%;
     background:#cfc;
     border: 1px solid #0f0;
     padding:5px;
@@ -209,7 +227,7 @@ img {
 #logo{
     float:left;
     height:40px;
-	padding:6px;
+	padding:11px;
 }
 
 /* logo ends here */ 
@@ -220,41 +238,49 @@ img {
 #banner{
     float:left;
     width: 75%;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    background: #fff;
 }
 
 
 #search {
-	float:left;
-	padding: 22px;
-	width:40%;
+	float: right;
+	padding: 22px 0;
+	width: 35%;
 }
 
 #frmsearch {
 	float:left;
+    width: 100%;
+}
+
+#frmsearch .search {
+    width: 75%;
+    padding: 4px;
+    outline: none;
+}
+
+#frmsearch .btnsearch {
+    width: 20%;
+    padding: 0;
+    padding: 4px;
 }
 
 /* banner ends here */
 
 
 #topright{
-    float: left;
-    width: 20%;
-    height: 59px;
-    margin-top:25px;
-    background: #fff;
+    float: right;
+    width: 200px;
+    padding: 28px 0;
 }
 
 /* contentbody starts here */
 
-#contentbody{
+#contentbody {
+    margin: 100px auto;
     background: #fff no-repeat;
-	padding: 1.5em;
-	border: 1px solid #ccc;
+	padding: 0 4em;
+    min-height: 40px;
 	border-radius: 0.8em;
-    min-height: 200px;
     -moz-border-radius: 0.8em;
     -webkit-border-radius: 0.8em;
 }
@@ -266,6 +292,7 @@ img {
 
 .title{
     color: #1D62B3;
+    padding: 1em 0 1em 0;
 }
 
 /* title ends here */
@@ -292,7 +319,7 @@ img {
     color:#000;
     text-align: justify;
     font-size: 1em;
-    /*padding: 1.5em;*/
+    padding: 1.5em 0 1.5em 0;
     line-height: 1.8em;
 }
 
@@ -302,13 +329,14 @@ img {
 /* footer starts here*/
 
 #footer {
-    text-align:center;
+    text-align: center;
 /*    border-top:1px solid #eee;*/
     margin:0px auto;
     color:#999;
     background: #fff no-repeat;
     float: none;
 	font: inherit;
+    padding: 4em;
 }
 
 #footer p{
@@ -543,3 +571,5 @@ img {
     display: block;    
 }
 /*Admin Panel CSS End*/
+
+
