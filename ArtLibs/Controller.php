@@ -63,7 +63,7 @@ class Controller {
             $app->getTemplateManager()
                 ->getTemplate()
                 ->render(
-                    $template,
+                    $app->getConfManager()->getPathUserTemplate() . '/'. $template,
                     $app->getTemplateData()
                 ),
             Response::HTTP_OK,

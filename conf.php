@@ -11,8 +11,11 @@ $conf = array(
         'db_user' => 'root',
         'db_pass' => '',
         'development_mode' => true,
+        'path_sys_template' => '/Template/base.twig',
+        'path_static' => '/Template/static/',
+        'path_user_template' => '/App/views',
         'user_var' => array(
-            'project_name' => 'The ArtWeb'
+            'project_name' => 'The ArtWeb',
         ),
     ),
     'staging' => array(

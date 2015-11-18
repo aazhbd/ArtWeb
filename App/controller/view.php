@@ -18,11 +18,11 @@ class Views extends Controller
     public function viewCustom($params, $app) {
         $app->setTemplateData(
             array(
-                'title' => 'Custom',
+                'title' => 'This is the custom page',
                 'body_content' => 'A test custom page loaded from controller/view.php.'
             )
         );
 
-        $this->display($app, 'home.twig');
+        $this->display($app, 'test.twig');
     }
 }

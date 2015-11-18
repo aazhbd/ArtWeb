@@ -28,6 +28,10 @@ class Configuration
 
     protected $path_library;
 
+    protected $path_sys_template;
+
+    protected $path_user_template;
+
     protected $development_mode;
 
     protected $user_var;
@@ -72,9 +76,12 @@ class Configuration
                 ("/" . $this->path_root) : ''
             );
 
+        $this->path_sys_template = '/Template/base.twig';
+        $this->path_user_template = '/App/views/';
+
         $this->path_library = $this->path . '/ArtLibs/';
-        $this->path_template = $this->path . '/App/template/';
-        $this->path_static = $this->path_url . '/App/static/';
+        $this->path_template = $this->getPathSysTemplate();
+        $this->path_static = $this->getPathUrl() . '/Template/static/';
 
         $this->db_host = 'localhost';
         $this->db_name = 'artcms';
@@ -129,7 +136,7 @@ class Configuration
         if (isset($conf['path_url'])) $this->path_url = $conf['path_url'];
 
         if (isset($conf['path_template'])) $this->path_template = $conf['path_template'];
-        if (isset($conf['path_static'])) $this->path_static = $conf['path_static'];
+        if (isset($conf['path_static'])) $this->path_static = $this->getPathUrl() .  $conf['path_static'];
         if (isset($conf['path_library'])) $this->path_library = $conf['path_library'];
 
         if (isset($conf['db_host'])) $this->db_host = $conf['db_host'];
@@ -137,10 +144,45 @@ class Configuration
         if (isset($conf['db_user'])) $this->db_user = $conf['db_user'];
         if (isset($conf['db_pass'])) $this->db_pass = $conf['db_pass'];
 
+        if (isset($conf['path_sys_template'])) $this->path_sys_template = $conf['path_sys_template'];
+        if (isset($conf['path_user_template'])) $this->path_user_template = $conf['path_user_template'];
+
         if (isset($conf['user_var'])) $this->user_var = $conf['user_var'];
 
         if (isset($conf['development_mode'])) $this->development_mode = $conf['development_mode'];
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPathSysTemplate()
+    {
+        return $this->path_sys_template;
+    }
+
+    /**
+     * @param mixed $path_sys_template
+     */
+    public function setPathSysTemplate($path_sys_template)
+    {
+        $this->path_sys_template = $path_sys_template;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPathUserTemplate()
+    {
+        return $this->path_user_template;
+    }
+
+    /**
+     * @param mixed $path_user_template
+     */
+    public function setPathUserTemplate($path_user_template)
+    {
+        $this->path_user_template = $path_user_template;
     }
 
     /**

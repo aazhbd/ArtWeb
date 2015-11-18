@@ -135,6 +135,8 @@ class Application
                 'path_url_postfix' => $this->getConfManager()->getPathUrl() . $this->getConfManager()->getPathRootPostfix(),
                 'errors' => $this->getErrorManager()->getMessages(),
                 'user_var' => $this->getConfManager()->getUserVar(),
+                'path_sys_template' => $this->getConfManager()->getPathSysTemplate(),
+                'path_user_template' => $this->getConfManager()->getPathUserTemplate(),
             );
         }
 
