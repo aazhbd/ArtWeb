@@ -27,10 +27,8 @@ div {
 }
 
 h1 {
-    font-family:"Lithos";
-    font-size:1.8em;
-    font-weight:bolder;
-    color:#333;
+    font-size: 1.8em;
+    color: #333;
 }
 
 h1 a {
@@ -40,6 +38,7 @@ h1 a {
 
 h2, h2 a{
     font-size:1.2em;
+    font-weight: normal;
 }
 
 h3, h3 a{
@@ -81,117 +80,20 @@ img {
 #contentheader {
     background: #fff;
     box-shadow: 0 0px 10px 0px #acacac;
-    opacity: 0.8;
+    opacity: 0.82;
     position: fixed;
     top: 0px;
-    padding: 0 4em;
-    width: 95%;
+    padding: 11px 0;
+    width: 100%;
+    z-index: 999;
+}
+
+#navigatemenu {
+    float: left;
     z-index: 999;
 }
 
 /* end head */
-
-/* navigation */
-
-#navigatemenu {
-    float:left;
-    width: auto;
-    padding: 22px;
-    z-index: 999;
-}
-
-#nav {
-    padding:0px 0;
-    margin:0;
-    height:22px;
-    font:1em Tahoma, Geneva, sans-serif;
-    z-index: 999;
-}
-
-#nav ul{
-    margin:0;
-    padding:0;
-    list-style:none;
-}
-
-#nav li {
-    float:left;
-    list-style:none;
-}
-
-#nav li a {
-    color:#333;
-    padding:3px 15px 3px 15px;
-    background:#fff;
-    font:1em Arial, Sans-Serif;
-    margin:1px 2px 0 0;
-    font-weight:bold;
-    text-decoration:none;
-    display:block;
-    z-index: 999;
-}
-
-#nav li a.active {
-    background-color:#eee;
-    color:#444;
-    text-decoration:none;
-}
-
-#nav ul li{
-    display: block;
-    position: relative;
-    float: left;
-    margin:0;
-    padding:0;
-}
-
-#nav li ul{
-    display: none;
-}
-
-#nav ul li a{
-    display: block;
-    text-decoration: none;
-    color: #fff;
-    border-top: 1px solid #ffffff;
-    border: 1px solid #333333;
-    white-space: nowrap;
-    text-decoration: none;
-    float: left; /*\*/ float:none;
-    padding: 2px 20px 2px 5px;
-}
-
-#nav ul li a:hover{
-    background: #0a1825;
-    color:#FFFFFF;
-    font-weight:bold;
-}
-
-#nav li:hover ul{
-    display: block;
-    position: absolute;
-    font-weight:bold;
-}
-
-#nav li:hover li{
-    float: none;
-}
-
-#nav ul li a span{
-    font-weight: normal;
-    color: #67707a;
-}
-
-#nav li:hover a{
-    color:#FFF;
-    background:#666;
-}
-
-#nav li:hover li a:hover{
-    background: #999;
-}
-
-/* navigation ends here */
 
 
 /* reports starts here */
@@ -226,8 +128,7 @@ img {
 
 #logo{
     float:left;
-    height:40px;
-	padding:11px;
+    height:37px;
 }
 
 /* logo ends here */ 
@@ -236,30 +137,30 @@ img {
 /* banner starts here */
 
 #banner{
-    float:left;
-    width: 75%;
+    width: 91%;
+    margin: auto;
+    padding: 0;
 }
 
-
 #search {
-	float: right;
-	padding: 22px 0;
-	width: 35%;
+    float: left;
+    width: 28%;
+}
+
+.search {
+	float: left;
+	padding: 4px 0;
+	width: 75%;
 }
 
 #frmsearch {
-	float:left;
     width: 100%;
-}
-
-#frmsearch .search {
-    width: 75%;
-    padding: 4px;
+    padding: 2px;
     outline: none;
 }
 
-#frmsearch .btnsearch {
-    width: 20%;
+.btnsearch {
+    width: 22%;
     padding: 0;
     padding: 4px;
 }
@@ -269,17 +170,16 @@ img {
 
 #topright{
     float: right;
-    width: 200px;
-    padding: 28px 0;
+    padding: 10px 0;
 }
 
 /* contentbody starts here */
 
 #contentbody {
-    margin: 100px auto;
+    margin: 82px auto 0;
     background: #fff no-repeat;
 	padding: 0 4em;
-    min-height: 40px;
+    min-height: 480px;
 	border-radius: 0.8em;
     -moz-border-radius: 0.8em;
     -webkit-border-radius: 0.8em;
@@ -290,9 +190,10 @@ img {
 
 /* title starts here */
 
-.title{
+.title {
+    font-size: 2em;
     color: #1D62B3;
-    padding: 1em 0 1em 0;
+    padding: 1em 0;
 }
 
 /* title ends here */
@@ -301,11 +202,11 @@ img {
 /* subtitle starts here */
 
 .subtitle{
-    color: #666666;
+    color: #101010;
     font-style: italic;
     font-weight: bold;
     font-size: 1em;
-    padding-top: 1em;
+    padding-top: .1em;
     padding-bottom: 0.2em;
 }
 
@@ -319,8 +220,8 @@ img {
     color:#000;
     text-align: justify;
     font-size: 1em;
-    padding: 1.5em 0 1.5em 0;
-    line-height: 1.8em;
+    padding: .5em 0;
+    line-height: 1.9em;
 }
 
 /* body ends here */
@@ -330,13 +231,10 @@ img {
 
 #footer {
     text-align: center;
-/*    border-top:1px solid #eee;*/
-    margin:0px auto;
-    color:#999;
-    background: #fff no-repeat;
+    margin: auto;
+    color: #999;
     float: none;
-	font: inherit;
-    padding: 4em;
+    padding: 10px;
 }
 
 #footer p{
@@ -346,230 +244,25 @@ img {
 /* footer ends here*/
 
 
-/*Admin Panel CSS Start*/
+/* selectors */
 
-.adminpanel{
-    border:1px solid #aaa;
-    background:#fff;
-    padding:10px;
-    padding-bottom:25px;
-    padding-top:25px;
-    margin:1px;
-    border:1px solid #ccc;
-}
-
-.tblmain{
-    border-collapse:collapse;
-    width:98%;
-}
-
-.tblheader{
-    background:#EDF4FA repeat-x;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:12em;
-    font-weight:bolder;
-    text-align:center;
-    color:#000;
-    padding:5px;
-    border-radius: 0.8em;
-    -moz-border-radius: 0.8em;
-    -webkit-border-radius: 0.8em;	
-}
-
-
-
-.imgbox{
-    background:#CCC;
-    padding:10px;
-    width:50px;
-    height:40px;
-    float:left;
-}
-
-#imglinks{
-    text-decoration: none;
-    border:solid #ccc;
-}
-
-#imglinks:hover{
-    text-decoration: none;
-    border:solid #eee;
-}
-
-.blanksp{
-    width:20px;
-    height:80px;
-    padding:10px;
-    background:#aaa;
-    float:left;
-}
-
-.txtbox{
-    background:#369;
-    padding:10px;
-    width:300px;
-    height:100px;
-    text-align:center;
-}
-
-.txtbox:hover{
-    background:#69C;
-    padding:10px;
-    width:300px;
-    height:40px;
-    text-align:center;
-}
-
-.linegap{
-    background:#FFF;
-    height:10px;
-    width:100%;
-}
-
-.tblhead{
-    background:#aaa;
-    color:#fff;
-    font-weight:bolder;
-}
-
-.normlinks{
-    color:#fff;
-    text-decoration:underline;
-    text-align:left;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:12px;
-    font-weight:normal;
-    margin-left:5px;
-    margin-bottom:10px;
-    line-height:24px;
-    display:block;
-    width:200px;
-    padding:2px;
-}
-
-.normlinks:hover{
-    text-decoration:none;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:12px;
-    font-weight:normal;
-    margin-left:5px;
-    margin-bottom:10px;
-    line-height:24px;
-    background:#999;
-    color:#FFF;
-    display:block;
-    width:200px;
-    padding:2px;
-}
-
-.tblfield{
-    width:80px;
-    float:left;
-    padding:5px;
-    font-size: 0.8em;
-}
-
-.subinfo{
-    font:Arial, Helvetica, sans-serif italic;
-    font-size:12px;
-    text-align:left;
-    padding: 3px;
-    float:left;
-    width: auto;
-}
-
-.topmenu{
-    font:Arial, Helvetica, sans-serif italic;
-    font-size:12px;
-    font-weight: bolder;
-    text-align:left;
-    padding: 5px;
-    float:left;
-    width: 97%;
-    background-color: #D8E2ED;
-    border: 1px solid #ccc;
-    border-radius: 0.8em;
-    -moz-border-radius: 0.8em;
-    -webkit-border-radius: 0.8em;    
-}
-
-.topmenu a{
-    font-weight: bolder;
-    text-align:left;
-    padding: 5px;
-    border: 1px solid #D8E2ED;
-    border-radius: 0.8em;
-    -moz-border-radius: 0.8em;
-    -webkit-border-radius: 0.8em;
-}
-
-.topmenu a:hover{
-    font-weight: bolder;
-    text-align:left;
-	padding: 5px;
-    border: 1px solid #D8E2ED;
-    border-radius: 0.8em;
-    -moz-border-radius: 0.8em;
-    -webkit-border-radius: 0.8em;
+#selectors {
     background: #fff;
-    color:#69C; /*DAF1E8*/
+    opacity: 0.82;
+    float: left;
+    width: 91%;
+    max-height: 130px;
+    min-height: 100px;
+    overflow-x: auto;
+    overflow-y: scroll;
+    position: fixed;
+    top: 80px;
+    margin: 0 auto;
 }
 
-#selMenu{
-    font-weight: bolder;
-    text-align:left;
-    padding: 5px;
-    border: 1px solid #eee;
-    border-radius: 0.8em;
-    -moz-border-radius: 0.8em;
-    -webkit-border-radius: 0.8em;
-    color: #69C;
-    background: #fff;    
+.choices {
+    float: left;
+    padding: 0px 11px;
 }
 
-.adminbox{
-    font:Arial, Helvetica, sans-serif italic;
-    font-size:14px;
-    font-weight: bolder;
-	float:left;
-    margin:5px;
-    padding:5px;
-    border: 1px solid #eef;
-    border-radius: 0.8em;
-    -moz-border-radius: 0.8em;
-    -webkit-border-radius: 0.8em;
-    color: #E8F3F4;
-    background: #fff;
-}
-
-.adminblock{
-    float:left;
-    width: 20%;
-    margin:10px;
-    padding:10px;
-    border: 1px solid #eef;
-    border-radius: 0.5em;
-    -moz-border-radius: 0.5em;
-    -webkit-border-radius: 0.5em;
-    color: #1D62B3;
-    background: #fff;
-    display: block;    
-}
-
-.adminblock:hover{
-    float:left;
-    width: 20%;
-    margin:10px;
-    padding:10px;
-    border: 1px solid #eee;
-    border-radius: 0.5em;
-    -moz-border-radius: 0.5em;
-    -webkit-border-radius: 0.5em;
-    color:#333;
-	font-weight:bolder;
-    background: #D8E2ED;
-    display: block;    
-}
-/*Admin Panel CSS End*/
-
-
+/* end selectors */
