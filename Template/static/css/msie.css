@@ -11,9 +11,13 @@
 * @since         Version 1.0
 *  
 */
-.box { height:1%; }
+.box {
+    height: 1%;
+}
 
-#panel-left { width: 168px;}
+#panel-left {
+    width: 168px;
+}
 
 #nav ul li a {
     display: inline-block;
@@ -21,7 +25,7 @@
     height: 18px;
 }
 
-.forminput{
-	float:left;
-	text-align:left;
+.forminput {
+    float: left;
+    text-align: left;
 }

@@ -15,7 +15,7 @@ class ErrorManager
         $this->is_error = false;
         $this->path_log = 'artphp.log';
 
-        file_put_contents($this->path_log, trim("Start of error log : " . date('m-d-Y h:i:s', time())).PHP_EOL, FILE_APPEND);
+        file_put_contents($this->path_log, trim("Start of error log : " . date('m-d-Y h:i:s', time())) . PHP_EOL, FILE_APPEND);
     }
 
     /**
@@ -73,12 +73,12 @@ class ErrorManager
      */
     public function addMessage($message)
     {
-        $this->messages[] =  $message;
+        $this->messages[] = $message;
         $this->is_error = true;
 
-        foreach($this->messages as $m) {
+        foreach ($this->messages as $m) {
             echo "Error : " . $m . "<br />";
-            file_put_contents($this->path_log, trim("Error occurred at : " . date('m-d-Y h:i:s', time()) . " Message: " . $m).PHP_EOL, FILE_APPEND);
+            file_put_contents($this->path_log, trim("Error occurred at : " . date('m-d-Y h:i:s', time()) . " Message: " . $m) . PHP_EOL, FILE_APPEND);
         }
     }
 }

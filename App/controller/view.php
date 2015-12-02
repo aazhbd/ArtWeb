@@ -15,7 +15,8 @@ class Views extends Controller
         $this->display($app, 'home.twig');
     }
 
-    public function viewCustom($params, $app) {
+    public function viewCustom($params, $app)
+    {
         $app->setTemplateData(
             array(
                 'title' => 'This is custom page',

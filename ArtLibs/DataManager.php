@@ -13,11 +13,10 @@ class DataManager
         $this->message = "";
 
         try {
-            $data = new \PDO('mysql:host='. $conf->getDbHost() .';dbname='. $conf->getDbName() .'', $conf->getDbUser(), $conf->getDbPass());
+            $data = new \PDO('mysql:host=' . $conf->getDbHost() . ';dbname=' . $conf->getDbName() . '', $conf->getDbUser(), $conf->getDbPass());
             $this->data_manager = new \FluentPDO($data);
             $this->data_manager->debug = false;
-        }
-        catch(\Exception $ex) {
+        } catch (\Exception $ex) {
             $this->message = "Database connection failed : " . $ex->getMessage();
         }
     }
@@ -45,11 +44,9 @@ class DataManager
      */
     public function getMessage()
     {
-        if($this->message != "")
-        {
+        if ($this->message != "") {
             return $this->message;
-        }
-        else {
+        } else {
             return false;
         }
     }

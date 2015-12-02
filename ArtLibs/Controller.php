@@ -6,7 +6,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use \Symfony\Component\HttpFoundation\Response;
 
 
-class Controller {
+class Controller
+{
 
     private $response;
 
@@ -33,14 +34,14 @@ class Controller {
 
     public function jsonResponse($app, $data)
     {
-        $this->response =new JsonResponse();
+        $this->response = new JsonResponse();
         $this->response->setData($data);
         $this->response->send();
     }
 
     public function fileResponse($app, $filePath)
     {
-        if(!file_exists($filePath)) {
+        if (!file_exists($filePath)) {
             $app->getErrorManager()
                 ->addMessage("Error Occurred: File could not be found to make a proper response.");
             return;
@@ -63,7 +64,7 @@ class Controller {
             $app->getTemplateManager()
                 ->getTemplate()
                 ->render(
-                    $app->getConfManager()->getPathUserTemplate() . '/'. $template,
+                    $app->getConfManager()->getPathUserTemplate() . '/' . $template,
                     $app->getTemplateData()
                 ),
             Response::HTTP_OK,

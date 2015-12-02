@@ -136,7 +136,7 @@ class Configuration
         if (isset($conf['path_url'])) $this->path_url = $conf['path_url'];
 
         if (isset($conf['path_template'])) $this->path_template = $conf['path_template'];
-        if (isset($conf['path_static'])) $this->path_static = $this->getPathUrl() .  $conf['path_static'];
+        if (isset($conf['path_static'])) $this->path_static = $this->getPathUrl() . $conf['path_static'];
         if (isset($conf['path_library'])) $this->path_library = $conf['path_library'];
 
         if (isset($conf['db_host'])) $this->db_host = $conf['db_host'];

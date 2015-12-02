@@ -30,27 +30,26 @@ class RouteManager
      * @param mixed $url_params
      * @return mixed
      */
-    public function setUrlParams($url_params=array())
+    public function setUrlParams($url_params = array())
     {
-        if(count($url_params) < 1) {
+        if (count($url_params) < 1) {
             $this->url_params = array_values(
                 array_filter(
                     explode('/', trim($this->incoming_url, '\\'))
                 )
             );
-        }
-        else {
+        } else {
             $this->url_params = $url_params;
         }
 
         return $this;
     }
 
-    public function dispatchUrl($route_conf=array())
+    public function dispatchUrl($route_conf = array())
     {
         $this->setUrlParams();
 
-        if(count($route_conf) >= 1) {
+        if (count($route_conf) >= 1) {
             $this->setRoutes($route_conf);
         }
 
@@ -62,15 +61,14 @@ class RouteManager
         $url_vars = $params;
         $found = false;
 
-        foreach($routes as $key => $val)
-        {
+        foreach ($routes as $key => $val) {
             $pattern = '/^' . str_replace('/', '\/', $key) . '\/?$/i';
 
-            if(preg_match($pattern, strtolower($incoming), $matches)) {
+            if (preg_match($pattern, strtolower($incoming), $matches)) {
                 $found = true;
                 $ctr_str = $val;
 
-                foreach($matches as $k => $v) {
+                foreach ($matches as $k => $v) {
                     $url_vars[$k] = $v;
                 }
 
@@ -88,7 +86,7 @@ class RouteManager
         $class = str_replace("/", "\\", implode("/", array_slice($ctr_set, 1, 1)));
         $method = implode("/", array_slice($ctr_set, -1, 1));
 
-        if(!method_exists($class, $method)) {
+        if (!method_exists($class, $method)) {
             $this->getApp()->getErrorManager()->addMessage("Method " . $method . " in class " . $class . " couldn't be found");
             return;
         }
@@ -124,9 +122,9 @@ class RouteManager
      * @param mixed $incoming_url
      * @returns mixed
      */
-    public function setIncomingUrl($incoming_url=null)
+    public function setIncomingUrl($incoming_url = null)
     {
-        if($incoming_url != null) {
+        if ($incoming_url != null) {
             $this->incoming_url = $incoming_url;
         }
 
