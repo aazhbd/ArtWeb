@@ -4,5 +4,4 @@ composer.phar
 vendor
 .vscode
 webroot/artphp.log
-
 /nbproject/private/
