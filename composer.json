@@ -4,12 +4,12 @@
   "license": "MIT",
   "require": {
     "php": ">=5.3.0",
-    "symfony/http-foundation": "~2.5",
+    "symfony/http-foundation": "^3.1",
     "lichtner/fluentpdo": "dev-master",
     "components/jquery": "~2.1",
     "components/normalize.css": "2.*",
     "symfony/expression-language": "~2.5",
-    "twig/twig": "~1.16"
+    "twig/twig": "1.24"
   },
   "config": {
     "component-dir": "vendor/assets"
