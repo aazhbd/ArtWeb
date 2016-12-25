@@ -4,8 +4,6 @@ namespace ArtLibs;
 
 class Configuration
 {
-    private $app;
-
     protected $db_host;
 
     protected $db_name;
@@ -35,6 +33,8 @@ class Configuration
     protected $development_mode;
 
     protected $user_var;
+
+    private $app;
 
     private $conf;
 
@@ -99,6 +99,38 @@ class Configuration
     }
 
     /**
+     * @return mixed
+     */
+    public function getPathSysTemplate()
+    {
+        return $this->path_sys_template;
+    }
+
+    /**
+     * @param mixed $path_sys_template
+     */
+    public function setPathSysTemplate($path_sys_template)
+    {
+        $this->path_sys_template = $path_sys_template;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPathUrl()
+    {
+        return $this->path_url;
+    }
+
+    /**
+     * @param mixed $path_url
+     */
+    public function setPathUrl($path_url)
+    {
+        $this->path_url = $path_url;
+    }
+
+    /**
      * @return string
      */
     public function loadLibrary($library)
@@ -151,22 +183,6 @@ class Configuration
 
         if (isset($conf['development_mode'])) $this->development_mode = $conf['development_mode'];
         return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPathSysTemplate()
-    {
-        return $this->path_sys_template;
-    }
-
-    /**
-     * @param mixed $path_sys_template
-     */
-    public function setPathSysTemplate($path_sys_template)
-    {
-        $this->path_sys_template = $path_sys_template;
     }
 
     /**
@@ -311,22 +327,6 @@ class Configuration
     public function setPath($path)
     {
         $this->path = $path;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPathUrl()
-    {
-        return $this->path_url;
-    }
-
-    /**
-     * @param mixed $path_url
-     */
-    public function setPathUrl($path_url)
-    {
-        $this->path_url = $path_url;
     }
 
     /**
