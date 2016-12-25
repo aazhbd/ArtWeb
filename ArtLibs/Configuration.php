@@ -38,33 +38,17 @@ class Configuration
 
     private $conf;
 
-    public function __construct($app)
+    /**
+     * Configuration constructor.
+     * @param Application $app
+     */
+    public function __construct(Application $app)
     {
         $this->path = str_replace(DIRECTORY_SEPARATOR, '/', realpath(dirname(__FILE__) . '/..'));
 
         $this->path_root_postfix = '/webroot';
 
-        $this->path_root = str_replace(
-            ' ',
-            '%20',
-            preg_replace(
-                '/' . preg_quote(
-                    str_replace(
-                        DIRECTORY_SEPARATOR,
-                        '/',
-                        $_SERVER['DOCUMENT_ROOT']
-                    ),
-                    '/') . '\/?/',
-                '',
-                str_replace(
-                    DIRECTORY_SEPARATOR,
-                    '/',
-                    realpath(
-                        dirname(__FILE__) . '/..'
-                    )
-                )
-            )
-        );
+        $this->path_root = $this->setPathRoot();
 
         $this->path_url = (
             empty($_SERVER['HTTPS']) ?
@@ -73,7 +57,7 @@ class Configuration
             $_SERVER['HTTP_HOST'] .
             (
             strlen($this->path_root) ?
-                ("/" . $this->path_root) : ''
+                ("/" . $this->getPathRoot()) : ''
             );
 
         $this->path_sys_template = '/Template/base.twig';
@@ -96,6 +80,48 @@ class Configuration
 
         $this->app = $app;
         $this->conf = $app->getConf();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPathRoot()
+    {
+        return $this->path_root;
+    }
+
+    /**
+     * @param null $path_root
+     * @return mixed|null
+     */
+    public function setPathRoot($path_root = null)
+    {
+        if (!isset($path_root)) {
+            $this->path_root = str_replace(
+                ' ',
+                '%20',
+                preg_replace(
+                    '/' . preg_quote(
+                        str_replace(
+                            DIRECTORY_SEPARATOR,
+                            '/',
+                            $_SERVER['DOCUMENT_ROOT']
+                        ),
+                        '/') . '\/?/',
+                    '',
+                    str_replace(
+                        DIRECTORY_SEPARATOR,
+                        '/',
+                        realpath(
+                            dirname(__FILE__) . '/..'
+                        )
+                    )
+                )
+            );
+        } else {
+            $this->path_root = $path_root;
+        }
+        return $this->path_root;
     }
 
     /**
@@ -131,6 +157,7 @@ class Configuration
     }
 
     /**
+     * @param $library
      * @return string
      */
     public function loadLibrary($library)
@@ -154,12 +181,13 @@ class Configuration
     }
 
     /**
-     * @return string
+     * @param array $conf
+     * @return $this
      */
-    public function setConfiguration($conf)
+    public function setConfiguration($conf = array())
     {
-        if (count($conf) < 1 || empty($conf)) {
-            return false;
+        if (empty($conf)) {
+            return null;
         }
 
         if (isset($conf['path'])) $this->path = $conf['path'];
@@ -242,11 +270,13 @@ class Configuration
     }
 
     /**
-     * @param mixed $app
+     * @param Application $app
+     * @return $this
      */
-    public function setApp($app)
+    public function setApp(Application $app)
     {
         $this->app = $app;
+        return $this;
     }
 
     /**
@@ -343,22 +373,6 @@ class Configuration
     public function setPathLibrary($path_library)
     {
         $this->path_library = $path_library;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPathRoot()
-    {
-        return $this->path_root;
-    }
-
-    /**
-     * @param mixed $path_root
-     */
-    public function setPathRoot($path_root)
-    {
-        $this->path_root = $path_root;
     }
 
     /**
