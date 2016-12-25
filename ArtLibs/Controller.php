@@ -11,6 +11,11 @@ class Controller
 
     private $response;
 
+    function __construct()
+    {
+
+    }
+
     /**
      * @return mixed
      */
@@ -25,11 +30,6 @@ class Controller
     public function setResponse($response)
     {
         $this->response = $response;
-    }
-
-    function __construct()
-    {
-
     }
 
     public function jsonResponse($app, $data)
