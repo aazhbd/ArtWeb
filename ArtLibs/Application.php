@@ -70,6 +70,30 @@ class Application
     /**
      * @return mixed
      */
+    public function getErrorManager()
+    {
+        return $this->error_manager;
+    }
+
+    /**
+     * @param mixed $error_manager
+     * @return mixed
+     */
+    public function setErrorManager($error_manager = false)
+    {
+        $this->error_manager = $error_manager;
+
+        if ($this->error_manager == false) {
+            require_once('ErrorManager.php');
+            $this->error_manager = new ErrorManager();
+        }
+
+        return $this->error_manager;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getDataManager()
     {
         return $this->data_manager;
@@ -144,22 +168,6 @@ class Application
     }
 
     /**
-     * @return Request
-     */
-    public function getRequest()
-    {
-        return $this->request;
-    }
-
-    /**
-     * @param Request $request
-     */
-    public function setRequest($request)
-    {
-        $this->request = $request;
-    }
-
-    /**
      * @return mixed
      */
     public function getConfManager()
@@ -185,27 +193,19 @@ class Application
     }
 
     /**
-     * @return mixed
+     * @return Request
      */
-    public function getErrorManager()
+    public function getRequest()
     {
-        return $this->error_manager;
+        return $this->request;
     }
 
     /**
-     * @param mixed $error_manager
-     * @return mixed
+     * @param Request $request
      */
-    public function setErrorManager($error_manager = false)
+    public function setRequest($request)
     {
-        $this->error_manager = $error_manager;
-
-        if ($this->error_manager == false) {
-            require_once('ErrorManager.php');
-            $this->error_manager = new ErrorManager();
-        }
-
-        return $this->error_manager;
+        $this->request = $request;
     }
 
     /**
