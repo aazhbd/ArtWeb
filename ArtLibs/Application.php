@@ -2,6 +2,7 @@
 namespace ArtLibs;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class Application
 {
@@ -23,14 +24,19 @@ class Application
 
     protected $request;
 
+    protected $session;
+
+    /**
+     * Application constructor.
+     */
     function __construct()
     {
-        $this->error_manager = $this->setErrorManager(false);
+        $this->error_manager = $this->setErrorManager();
 
         try {
             /* Set all configurations */
-            $this->conf = $this->setConf(false);
-            $this->conf_manager = $this->setConfManager(false);
+            $this->conf = $this->setConf();
+            $this->conf_manager = $this->setConfManager();
 
             if ($this->conf_manager->getDevelopmentMode()) {
                 error_reporting(E_ALL ^ E_NOTICE);
@@ -46,11 +52,11 @@ class Application
                 require_once($this->conf_manager->getPath() . '/vendor/autoload.php');
                 $this->request = Request::createFromGlobals();
             } else {
-                $this->getErrorManager()->addMessage('The vendor library is missing, use composer to install');
+                $this->getErrorManager()->addMessage('The vendor library is missing, use composer to install dependencies.');
                 return;
             }
 
-            /* If all libraries are not loaded successfully then set object */
+            /* If all libraries are loaded successfully then set object */
 
             $this->data_manager = $this->setDataManager();
 
@@ -58,9 +64,13 @@ class Application
                 $this->getErrorManager()->addMessage('Exception occurred : ' . $this->data_manager->getMessage());
             }
 
-            $this->routes = $this->setRoutes(false);
-            $this->route_manager = $this->setRouteManager(false);
-            $this->template_manager = $this->setTemplateManager(false);
+            /* start session */
+            $this->session = new Session();
+            $this->session->start();
+
+            $this->routes = $this->setRoutes();
+            $this->route_manager = $this->setRouteManager();
+            $this->template_manager = $this->setTemplateManager();
 
         } catch (\Exception $ex) {
             $this->getErrorManager()->addMessage('Exception occurred : ' . $ex->getMessage());
@@ -76,14 +86,14 @@ class Application
     }
 
     /**
-     * @param mixed $error_manager
-     * @return mixed
+     * @param ErrorManager|null $error_manager
+     * @return ErrorManager|mixed
      */
-    public function setErrorManager($error_manager = false)
+    public function setErrorManager(ErrorManager $error_manager = null)
     {
         $this->error_manager = $error_manager;
 
-        if ($this->error_manager == false) {
+        if ($this->error_manager == null) {
             require_once('ErrorManager.php');
             $this->error_manager = new ErrorManager();
         }
@@ -92,7 +102,23 @@ class Application
     }
 
     /**
-     * @return mixed
+     * @return Session
+     */
+    public function getSession()
+    {
+        return $this->session;
+    }
+
+    /**
+     * @param Session $session
+     */
+    public function setSession(Session $session)
+    {
+        $this->session = $session;
+    }
+
+    /**
+     * @return DataManager
      */
     public function getDataManager()
     {
@@ -100,11 +126,15 @@ class Application
     }
 
     /**
-     * @param mixed $data_manager
-     * @return mixed
+     * @param DataManager|null $data_manager
+     * @return DataManager
      */
-    public function setDataManager($data_manager = null)
+    public function setDataManager(DataManager $data_manager = null)
     {
+        if ($data_manager != null) {
+            $this->data_manager = $data_manager;
+            return $this->data_manager;
+        }
         $this->data_manager = new DataManager($this->getConfManager());
         return $this->data_manager;
     }
@@ -122,14 +152,14 @@ class Application
     }
 
     /**
-     * @param mixed $route_manager
-     * @return mixed
+     * @param RouteManager|null $route_manager
+     * @return RouteManager|mixed
      */
-    public function setRouteManager($route_manager = false)
+    public function setRouteManager(RouteManager $route_manager = null)
     {
         $this->route_manager = $route_manager;
 
-        if ($this->route_manager == false) {
+        if ($this->route_manager == null) {
             $this->route_manager = new RouteManager($this);
         }
 
@@ -145,9 +175,9 @@ class Application
     }
 
     /**
-     * @param mixed $template_data
+     * @param array $template_data
      */
-    public function setTemplateData($template_data)
+    public function setTemplateData($template_data = array())
     {
         if (count($this->getTemplateData()) < 1) {
             $this->template_data = array(
@@ -176,14 +206,14 @@ class Application
     }
 
     /**
-     * @param mixed $conf_manager
-     * @return mixed
+     * @param Configuration|null $conf_manager
+     * @return Configuration|mixed|string
      */
-    public function setConfManager($conf_manager = false)
+    public function setConfManager(Configuration $conf_manager = null)
     {
         $this->conf_manager = $conf_manager;
 
-        if ($this->conf_manager == false) {
+        if ($this->conf_manager == null) {
             require_once('Configuration.php');
             $this->conf_manager = new Configuration($this);
             $this->conf_manager = $this->conf_manager->setConfiguration($this->conf);
@@ -201,15 +231,15 @@ class Application
     }
 
     /**
-     * @param Request $request
+     * @param $request
      */
-    public function setRequest($request)
+    public function setRequest(Request $request)
     {
         $this->request = $request;
     }
 
     /**
-     * @return mixed
+     * @return mixed|null
      */
     public function getConf()
     {
@@ -217,19 +247,19 @@ class Application
     }
 
     /**
-     * @param mixed $conf
-     * @return mixed
+     * @param array $conf
+     * @return array|mixed
      * @throws \Exception
      */
-    public function setConf($conf = false)
+    public function setConf($conf = array())
     {
         $this->conf = $conf;
 
-        if ($this->conf == false) {
+        if (empty($this->conf)) {
             $this->conf = include_once('../conf.php');
         }
 
-        if ($this->conf == false) {
+        if (empty($this->conf)) {
             throw new \Exception("Unable to load configuration file.");
         }
 
@@ -245,19 +275,19 @@ class Application
     }
 
     /**
-     * @param mixed $routes
-     * @return mixed $routes
+     * @param array $routes
+     * @return array|mixed
      * @throws \Exception
      */
-    public function setRoutes($routes = false)
+    public function setRoutes($routes = array())
     {
         $this->routes = $routes;
 
-        if ($this->routes == false) {
+        if (empty($this->routes)) {
             $this->routes = include('../routes.php');
         }
 
-        if ($this->routes == false) {
+        if (empty($this->routes)) {
             throw new \Exception("Unable to load routes file. ");
         }
 
@@ -273,14 +303,14 @@ class Application
     }
 
     /**
-     * @param mixed $template_manager
-     * @return mixed
+     * @param TemplateManager|null $template_manager
+     * @return TemplateManager|mixed
      */
-    public function setTemplateManager($template_manager = false)
+    public function setTemplateManager(TemplateManager $template_manager = null)
     {
         $this->template_manager = $template_manager;
 
-        if ($this->template_manager == false) {
+        if ($this->template_manager == null) {
             $this->template_manager = new TemplateManager($this);
         }
         return $this->template_manager;
