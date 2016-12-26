@@ -11,13 +11,20 @@ class RouteManager
 
     private $routes;
 
-    function __construct($app)
+    /**
+     * RouteManager constructor.
+     * @param Application $app
+     */
+    function __construct(Application $app)
     {
         $this->app = $app;
         $this->routes = $app->getRoutes();
         $this->incoming_url = $app->getRequest()->getPathInfo();
     }
 
+    /**
+     * @param array $route_conf
+     */
     public function dispatchUrl($route_conf = array())
     {
         $this->setUrlParams();
@@ -76,8 +83,8 @@ class RouteManager
     }
 
     /**
-     * @param mixed $url_params
-     * @return mixed
+     * @param array $url_params
+     * @return $this
      */
     public function setUrlParams($url_params = array())
     {
@@ -95,7 +102,7 @@ class RouteManager
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getIncomingUrl()
     {
@@ -103,8 +110,8 @@ class RouteManager
     }
 
     /**
-     * @param mixed $incoming_url
-     * @returns mixed
+     * @param null $incoming_url
+     * @return $this
      */
     public function setIncomingUrl($incoming_url = null)
     {
@@ -124,7 +131,7 @@ class RouteManager
     }
 
     /**
-     * @param mixed $routes
+     * @param $routes
      */
     public function setRoutes($routes)
     {
@@ -132,7 +139,7 @@ class RouteManager
     }
 
     /**
-     * @return mixed
+     * @return Application
      */
     public function getApp()
     {
@@ -140,9 +147,9 @@ class RouteManager
     }
 
     /**
-     * @param mixed $app
+     * @param Application $app
      */
-    public function setApp($app)
+    public function setApp(Application $app)
     {
         $this->app = $app;
     }
