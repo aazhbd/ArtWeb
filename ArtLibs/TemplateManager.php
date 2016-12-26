@@ -5,6 +5,17 @@ class TemplateManager
 {
     private $template;
 
+    function __construct($app)
+    {
+        $this->template = new \Twig_Environment(
+            new \Twig_Loader_Filesystem(
+                $app->getConfManager()->getPath(),
+                array('debug' => $app->getConfManager()->getDevelopmentMode()
+                )
+            )
+        );
+    }
+
     /**
      * @return mixed
      */
@@ -19,17 +30,6 @@ class TemplateManager
     public function setTemplate($template)
     {
         $this->template = $template;
-    }
-
-    function __construct($app)
-    {
-        $this->template = new \Twig_Environment(
-            new \Twig_Loader_Filesystem(
-                $app->getConfManager()->getPath(),
-                array('debug' => $app->getConfManager()->getDevelopmentMode()
-                )
-            )
-        );
     }
 }
 
