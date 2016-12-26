@@ -1,6 +1,8 @@
 <?php
 namespace ArtLibs;
 
+use Twig_Environment;
+
 class TemplateManager
 {
     private $template;
@@ -19,7 +21,7 @@ class TemplateManager
     }
 
     /**
-     * @return \Twig_Environment
+     * @return Twig_Environment
      */
     public function getTemplate()
     {
@@ -27,9 +29,9 @@ class TemplateManager
     }
 
     /**
-     * @param $template
+     * @param Twig_Environment $template
      */
-    public function setTemplate($template)
+    public function setTemplate(Twig_Environment $template)
     {
         $this->template = $template;
     }
