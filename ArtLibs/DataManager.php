@@ -8,7 +8,11 @@ class DataManager
 
     private $message;
 
-    function __construct($conf)
+    /**
+     * DataManager constructor.
+     * @param Configuration $conf
+     */
+    function __construct(Configuration $conf)
     {
         $this->message = "";
 
@@ -22,7 +26,7 @@ class DataManager
     }
 
     /**
-     * @return mixed
+     * @return \FluentPDO
      */
     public function getDataManager()
     {
@@ -30,8 +34,8 @@ class DataManager
     }
 
     /**
-     * @param mixed $data_manager
-     * @return mixed
+     * @param $data_manager
+     * @return \FluentPDO
      */
     public function setDataManager($data_manager)
     {
@@ -40,7 +44,7 @@ class DataManager
     }
 
     /**
-     * @return mixed
+     * @return bool|string
      */
     public function getMessage()
     {
@@ -52,8 +56,8 @@ class DataManager
     }
 
     /**
-     * @param mixed $message
-     * @return mixed
+     * @param $message
+     * @return string
      */
     public function setMessage($message)
     {
