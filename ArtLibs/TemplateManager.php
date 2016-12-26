@@ -5,19 +5,21 @@ class TemplateManager
 {
     private $template;
 
-    function __construct($app)
+    /**
+     * TemplateManager constructor.
+     * @param Application $app
+     */
+    function __construct(Application $app)
     {
         $this->template = new \Twig_Environment(
-            new \Twig_Loader_Filesystem(
-                $app->getConfManager()->getPath(),
-                array('debug' => $app->getConfManager()->getDevelopmentMode()
-                )
-            )
+            new \Twig_Loader_Filesystem($app->getConfManager()->getPath()),
+            array('debug' => $app->getConfManager()->getDevelopmentMode())
         );
+        $this->template->addGlobal("session", $app->getSession());
     }
 
     /**
-     * @return mixed
+     * @return \Twig_Environment
      */
     public function getTemplate()
     {
@@ -25,7 +27,7 @@ class TemplateManager
     }
 
     /**
-     * @param mixed $template
+     * @param $template
      */
     public function setTemplate($template)
     {
@@ -39,6 +41,6 @@ class TemplateManager
  * An open source web application development framework for PHP 5.
  * @author        ArticulateLogic Labs
  * @author        Abdullah Al Zakir Hossain, Email: aazhbd@yahoo.com
- * @copyright     Copyright (c)2009-2014 ArticulateLogic Labs
+ * @copyright     Copyright (c)2009-2016 ArticulateLogic Labs
  * @license       MIT License
  */
