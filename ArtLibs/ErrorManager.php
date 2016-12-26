@@ -9,13 +9,17 @@ class ErrorManager
 
     private $path_log;
 
+    /**
+     * ErrorManager constructor.
+     */
     function __construct()
     {
         $this->messages = array();
         $this->is_error = false;
         $this->path_log = 'artphp.log';
 
-        file_put_contents($this->path_log, trim("Start of error log : " . date('m-d-Y h:i:s', time())) . PHP_EOL, FILE_APPEND);
+        file_put_contents($this->path_log, trim("Start of error log : " . date('m-d-Y h:i:s', time())) . PHP_EOL,
+            FILE_APPEND);
     }
 
     /**
@@ -35,7 +39,7 @@ class ErrorManager
     }
 
     /**
-     * @return mixed
+     * @return array
      */
     public function getMessages()
     {
@@ -43,8 +47,8 @@ class ErrorManager
     }
 
     /**
-     * @param mixed $messages
-     * @return mixed
+     * @param $messages
+     * @return $this
      */
     public function setMessages($messages)
     {
@@ -53,7 +57,7 @@ class ErrorManager
     }
 
     /**
-     * @return mixed
+     * @return bool
      */
     public function getIsError()
     {
@@ -61,7 +65,7 @@ class ErrorManager
     }
 
     /**
-     * @param mixed $is_error
+     * @param $is_error
      */
     public function setIsError($is_error)
     {
@@ -69,7 +73,7 @@ class ErrorManager
     }
 
     /**
-     * @param mixed $message
+     * @param $message
      */
     public function addMessage($message)
     {
@@ -77,8 +81,11 @@ class ErrorManager
         $this->is_error = true;
 
         foreach ($this->messages as $m) {
-            echo "Error : " . $m . "<br />";
-            file_put_contents($this->path_log, trim("Error occurred at : " . date('m-d-Y h:i:s', time()) . " Message: " . $m) . PHP_EOL, FILE_APPEND);
+            if (!empty($m)) {
+                echo "Error : " . $m . "<br />";
+                file_put_contents($this->path_log,
+                    trim("Error occurred at : " . date('m-d-Y h:i:s', time()) . " Message: " . $m) . PHP_EOL, FILE_APPEND);
+            }
         }
     }
 }
