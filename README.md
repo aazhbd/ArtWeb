@@ -111,5 +111,8 @@ The code is released under MIT License.
 ### Contact
 -----------
 
-	AAZH (aazhbd@yahoo.com)
+> **Abdullah Al Zakir Hossain**
 
+- Email:   <aazhbd@yahoo.com>
+- Github:   <http://github.com/aazhbd>
+- Profile:   <https://de.linkedin.com/in/aazhbd>
