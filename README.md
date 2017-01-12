@@ -10,9 +10,11 @@ It's easy to start:
 
 require_once('../ArtLibs/Application.php');
 
+use ArtLibs\Controller;
+
 $app = new \ArtLibs\Application();
 
-class test {
+class test extends Controller {
     function viewTest($params, $app) {
         $app->setTemplateData(array('body_content' => 'Hello World'));
         $this->display($app, 'home.twig');
