@@ -89,6 +89,18 @@ $ php composer.phar update
 This is should create a clean initial setup for any Web Application software. It could be useful to be notified of any exceptions so that fixes can be added.
 
 
+### Components
+--------------
+
+An initial installation contains,
+
+ - [Symfony](https://symfony.com/) 3 components
+ - [FluentPDO](https://github.com/envms/fluentpdo) is used with PDO database abstraction layer
+ - [Twig](http://twig.sensiolabs.org/) is used as Template manager
+ - [JQuery](https://jquery.com/) and [JQuery UI](https://jqueryui.com/) is used for front end controls including validation
+ - Editor formatting with [markdown](https://simplemde.com/)
+
+
 ### License
 -----------
 
