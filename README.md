@@ -13,15 +13,14 @@ require_once('../ArtLibs/Application.php');
 $app = new \ArtLibs\Application();
 
 class test {
-    function viewTest() {
-        echo "Hello World!";
+    function viewTest($params, $app) {
+        $app->setTemplateData(array('body_content' => 'Hello World'));
+        $this->display($app, 'home.twig');
     }
 }
 
 $app->getRouteManager()->dispatchUrl(
-	array(
-        '/test' => './test/viewTest',
-    )
+	array('/test' => './test/viewTest')
 );
 
 ```
