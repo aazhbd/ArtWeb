@@ -26,6 +26,18 @@ $app->getRouteManager()->dispatchUrl(
 
 ```
 
+### Features
+------------
+
+ - The initial setup is very small but flexible.
+ - The project can be extended by adding any number of components, installed and maintained with ```composer```.
+ - More static libraries and components can be added in project specific static container.
+ - The code and structure adheres to the proven best practices of OOP and MVC, creating highly maintainable code.
+ - The operation flow and points of execution makes debugging easier.
+ - The Route manager is flexible and mimics functionalities of proven flexibility of development such as Django.
+ - It contains a flexible and expendable Configuration manager that handles system values along with custom user values.
+ - The datamanager is adaptable to any other ORM or SQL builder with any DBMS, including MySQL, PostgreSQL, SQLite etc.
+
 
 ### Requirements
 ----------------
