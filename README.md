@@ -30,7 +30,7 @@ $app->getRouteManager()->dispatchUrl(
 ### Features
 ------------
 
- - The initial setup is very small but flexible.
+ - The initial setup is very small but scalable. It can be used for very large project with more components easily.
  - The project can be extended by adding any number of components, installed and maintained with ```composer```.
  - More static libraries and components can be added in project specific static container.
  - The code and structure adheres to the proven best practices of OOP and MVC, creating highly maintainable code.
