@@ -1,0 +1,2 @@
+*.css linguist-language=PHP
+App/static/* linguist-vendored
