@@ -16,7 +16,7 @@ class Views extends Controller
         $this->display($app, 'frm_signup.twig');
     }
 
-    public function viewCustom($params, $app)
+    public function viewCustom($params, Application $app)
     {
         $app->setTemplateData(
             array(
@@ -24,7 +24,6 @@ class Views extends Controller
                 'body_content' => 'A test custom page loaded from controller/view.php.'
             )
         );
-
         $this->display($app, 'home.twig');
     }
 }
