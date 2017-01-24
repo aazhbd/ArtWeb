@@ -5,6 +5,10 @@ use ArtLibs\Controller;
 
 class Views extends Controller
 {
+    /**
+     * @param $params
+     * @param Application $app
+     */
     public function viewHome($params, Application $app)
     {
         $app->setTemplateData(
