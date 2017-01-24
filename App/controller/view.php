@@ -20,6 +20,10 @@ class Views extends Controller
         $this->display($app, 'frm_signup.twig');
     }
 
+    /**
+     * @param $params
+     * @param Application $app
+     */
     public function viewCustom($params, Application $app)
     {
         $app->setTemplateData(
