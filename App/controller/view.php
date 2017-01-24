@@ -1,10 +1,11 @@
 <?php
 
+use ArtLibs\Application;
 use ArtLibs\Controller;
 
 class Views extends Controller
 {
-    public function viewHome($params, $app)
+    public function viewHome($params, Application $app)
     {
         $app->setTemplateData(
             array(
