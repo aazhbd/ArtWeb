@@ -116,5 +116,4 @@ Discuss about the project with a [tweet](https://twitter.com/intent/tweet?hashta
 > **Abdullah Al Zakir Hossain**
 
 - Email:   <aazhbd@yahoo.com>
-- Github:   <http://github.com/aazhbd>
 - Profile:   <https://de.linkedin.com/in/aazhbd>
