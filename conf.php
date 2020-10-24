@@ -6,10 +6,10 @@ $conf = array(
         'development_mode' => false
     ),
     'development' => array(
-        'db_name' => 'dbname',
+        'db_name' => 'artweb_db',
         'db_host' => 'localhost',
         'db_user' => 'root',
-        'db_pass' => '',
+        'db_pass' => 'root',
         'development_mode' => true,
         'path_sys_template' => '/Template/base.twig',
         'path_static' => '/Template/static/',

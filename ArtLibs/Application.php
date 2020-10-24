@@ -179,7 +179,8 @@ class Application
      */
     public function setTemplateData($template_data = array())
     {
-        if (count($this->getTemplateData()) < 1) {
+        $currrent_template_data = $this->getTemplateData();
+        if (empty($currrent_template_data)) {
             $this->template_data = array(
                 'path' => $this->getConfManager()->getPath(),
                 'path_static' => $this->getConfManager()->getPathStatic(),
