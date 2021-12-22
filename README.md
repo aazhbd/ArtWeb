@@ -40,6 +40,7 @@ $app->getRouteManager()->dispatchUrl(
  - The datamanager is adaptable to any other ORM or SQL builder with any DBMS, including MySQL, PostgreSQL, SQLite etc.
 
 ![artweb]("http://www.articulatedlogic.com/media/images/artweb.height-320.png" artweb)
+<img alt="artweb" class="img-fluid" src="http://www.articulatedlogic.com/media/images/artweb.height-320.png">
 
 ### Requirements
 ----------------
