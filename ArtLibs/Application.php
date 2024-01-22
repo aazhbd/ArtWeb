@@ -1,4 +1,5 @@
 <?php
+
 namespace ArtLibs;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -45,8 +46,8 @@ class Application
             }
 
             /* Load all libraries */
-            $this->conf_manager->loadLibrary('ArtLibs');
-            $this->conf_manager->loadLibrary('App/controller');
+            $this->conf_manager->loadLibrary($this->conf_manager->getPath() . '/ArtLibs');
+            $this->conf_manager->loadLibrary($this->conf_manager->getPath() . '/App/controller');
 
             if (file_exists($this->conf_manager->getPath() . '/vendor/autoload.php')) {
                 require_once($this->conf_manager->getPath() . '/vendor/autoload.php');
@@ -176,11 +177,11 @@ class Application
 
     /**
      * @param array $template_data
+     * @return void
      */
-    public function setTemplateData($template_data = array())
+    public function setTemplateData(array $template_data = array())
     {
-        $currrent_template_data = $this->getTemplateData();
-        if (empty($currrent_template_data)) {
+        if (empty($this->getTemplateData())) {
             $this->template_data = array(
                 'path' => $this->getConfManager()->getPath(),
                 'path_static' => $this->getConfManager()->getPathStatic(),
@@ -208,7 +209,7 @@ class Application
 
     /**
      * @param Configuration|null $conf_manager
-     * @return Configuration|mixed|string
+     * @return Configuration|null
      */
     public function setConfManager(Configuration $conf_manager = null)
     {
@@ -232,7 +233,8 @@ class Application
     }
 
     /**
-     * @param $request
+     * @param Request $request
+     * @return void
      */
     public function setRequest(Request $request)
     {
@@ -252,7 +254,7 @@ class Application
      * @return array|mixed
      * @throws \Exception
      */
-    public function setConf($conf = array())
+    public function setConf(array $conf = array())
     {
         $this->conf = $conf;
 
@@ -280,7 +282,7 @@ class Application
      * @return array|mixed
      * @throws \Exception
      */
-    public function setRoutes($routes = array())
+    public function setRoutes(array $routes = array())
     {
         $this->routes = $routes;
 
