@@ -46,7 +46,7 @@ class Configuration
     {
         $this->path = str_replace(DIRECTORY_SEPARATOR, '/', realpath(dirname(__FILE__) . '/..'));
 
-        $this->path_root_postfix = '/webroot';
+        $this->path_root_postfix = '/';
 
         $this->path_root = $this->setPathRoot();
 
@@ -158,7 +158,7 @@ class Configuration
 
     /**
      * @param $library
-     * @return string
+     * @return Configuration
      */
     public function loadLibrary($library)
     {

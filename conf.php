@@ -7,9 +7,9 @@ $conf = array(
     ),
     'development' => array(
         'db_name' => 'artweb_db',
-        'db_host' => 'localhost',
-        'db_user' => 'root',
-        'db_pass' => 'root',
+        'db_host' => 'data-service',
+        'db_user' => 'artwebuser',
+        'db_pass' => 'tpass',
         'development_mode' => true,
         'path_sys_template' => '/Template/base.twig',
         'path_static' => '/Template/static/',

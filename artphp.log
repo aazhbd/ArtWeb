@@ -1,0 +1,13 @@
+Start of error log : 01-21-2024 05:07:22
+Error occurred at : 01-21-2024 05:07:22 Message: Exception occurred : Database connection failed : SQLSTATE[HY000] [2002] Connection refused
+Error occurred at : 01-21-2024 05:07:22 Message: Exception occurred : Database connection failed : SQLSTATE[HY000] [2002] Connection refused
+Error occurred at : 01-21-2024 05:07:22 Message: Exception occurred : Failed to start the session because headers have already been sent by "/var/www/html/ArtLibs/ErrorManager.php" at line 85.
+Error occurred at : 01-21-2024 05:07:22 Message: Exception occurred : Database connection failed : SQLSTATE[HY000] [2002] Connection refused
+Error occurred at : 01-21-2024 05:07:22 Message: Exception occurred : Failed to start the session because headers have already been sent by "/var/www/html/ArtLibs/ErrorManager.php" at line 85.
+Error occurred at : 01-21-2024 05:07:22 Message: Route manager is not allocated.
+Start of error log : 01-21-2024 05:07:32
+Start of error log : 01-21-2024 05:07:34
+Start of error log : 01-21-2024 05:07:44
+Start of error log : 01-21-2024 05:10:45
+Start of error log : 01-21-2024 05:10:47
+Start of error log : 01-22-2024 04:54:55

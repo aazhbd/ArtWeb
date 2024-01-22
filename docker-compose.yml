@@ -1,0 +1,50 @@
+version: "3"
+
+services:
+  data-service:
+    image:  mysql:latest
+    container_name: mysql_container
+    environment:
+      TZ: 'Europe/Berlin'
+      MYSQL_DATABASE: artweb_db
+      MYSQL_USER: artwebuser
+      MYSQL_PASSWORD: tpass
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_ROOT_PASSWORD: tpass
+    volumes:
+      - ./data_source:/docker-entrypoint-initdb.d
+    networks:
+      - articulatedlogic
+
+  www:
+    depends_on:
+      - data-service
+    container_name: artweb_container
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes:
+      - /var/www/html/vendor/
+      - ./:/var/www/html
+    ports:
+      - "8080:80"
+    stdin_open: true
+    tty: true
+    networks:
+      - articulatedlogic
+
+  phpmyadmin:
+    depends_on:
+      - data-service
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8001:80
+    environment:
+      - PMA_HOST=data-service
+      - PMA_PORT=3306
+    networks:
+      - articulatedlogic
+
+networks:
+  articulatedlogic:
+    driver: bridge
