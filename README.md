@@ -3,7 +3,7 @@
 
 ArtWeb is a fast, secure, feature rich, scalable web application framework for PHP, using Symfony2 components integrating with the best practices of MVC.
 
-It's easy to start:
+It is easy to start:
 
 ```php
 <?php
@@ -30,14 +30,14 @@ $app->getRouteManager()->dispatchUrl(
 ### Features
 ------------
 
- - The initial setup is very small but scalable. It can be used for very large project with more components easily.
+ - The initial setup is small but scalable. It can be used for large projects with more components easily scaling up.
  - The project can be extended by adding any number of components, installed and maintained with ```composer```.
- - More static libraries and components can be added in project specific static container.
- - The code and structure adheres to the proven best practices of OOP and MVC, creating highly maintainable code.
- - The operation flow and points of execution makes debugging easier.
+ - More static libraries and components can be added to the projects specific static container.
+ - The code and structure adhere to the proven best practices of OOP and MVC, creating highly maintainable code.
+ - The operation flow and points of execution make debugging easier.
  - The Route manager is flexible and mimics functionalities of proven flexibility of development such as Django.
  - It contains a flexible and expendable Configuration manager that handles system values along with custom user values.
- - The datamanager is adaptable to any other ORM or SQL builder with any DBMS, including MySQL, PostgreSQL, SQLite etc.
+ - It is possible to use most popular Database management systems with it, the data manager is adaptable to any other ORM or SQL builder with any DBMS, including MySQL, PostgreSQL, SQLite etc.
 
 <img alt="artweb" class="img-fluid" src="http://www.articulatedlogic.com/media/images/artweb.height-320.png">
 
@@ -82,7 +82,7 @@ The code is released under MIT License.
 ### Contact
 -----------
 
-Discuss about the project with a [tweet](https://twitter.com/intent/tweet?hashtags=php&original_referer=http%3A%2F%2F127.0.0.1%3A91%2F&text=Check%20out%20ArtWeb%20MVC%20Framework!&tw_p=tweetbutton&url=http%3A%2F%2Fgithub.com%2Faazhbd%2FArtWeb&via=aazhbd) or share on [Facebook](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fgithub.com%2Faazhbd%2FArtWeb).
+Discuss the project with a [tweet](https://twitter.com/intent/tweet?hashtags=php&original_referer=http%3A%2F%2F127.0.0.1%3A91%2F&text=Check%20out%20ArtWeb%20MVC%20Framework!&tw_p=tweetbutton&url=http%3A%2F%2Fgithub.com%2Faazhbd%2FArtWeb&via=aazhbd) or share on [Facebook](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fgithub.com%2Faazhbd%2FArtWeb).
 
 > **Abdullah Al Zakir Hossain**
 
