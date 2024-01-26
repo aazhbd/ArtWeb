@@ -9,7 +9,7 @@ $app->getRouteManager()->dispatchUrl();
 
 
 /**
- * An open source web application development framework for PHP 5.
+ * An open source web application development framework for PHP.
  * @author        articulatedlogic Labs
  * @author        Abdullah Al Zakir Hossain, Email: aazhbd@yahoo.com
  * @copyright     Copyright (c)2009-2024 ArticulatedLogic Labs

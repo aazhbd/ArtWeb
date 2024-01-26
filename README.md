@@ -44,7 +44,7 @@ $app->getRouteManager()->dispatchUrl(
 ### Requirements
 ----------------
 
-Requires `PHP 5.3` or greater, `composer 1.2` or greater.
+Requires `PHP >= 8.2` or greater, `composer >= 7` or greater.
 
 
 ### Installation instruction
