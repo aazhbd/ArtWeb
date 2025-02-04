@@ -39,7 +39,7 @@ $app->getRouteManager()->dispatchUrl(
  - It contains a flexible and expendable Configuration manager that handles system values along with custom user values.
  - It is possible to use most popular Database management systems with it, the data manager is adaptable to any other ORM or SQL builder with any DBMS, including MySQL, PostgreSQL, SQLite etc.
 
-<img alt="artweb" class="img-fluid" src="http://www.articulatedlogic.com/media/images/artweb.height-320.png">
+<img alt="artweb" class="img-fluid" src="https://assets.articulatedlogic.com/covers/artweb.png">
 
 ### Requirements
 ----------------
